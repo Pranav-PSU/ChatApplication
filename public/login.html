@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Exercise</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-dark">
+    <form
+      method="post"
+      action="/login"
+      class="bg-light border rounded w-50 mx-auto mt-5 p-3"
+    >
+      <div class="form-group d-flex flex-column">
+        <h1 class="mt-2 mb-4">Log In</h1>
+        <!-- <label for="name" class="py-1">Name *</label>
+        <input
+          id="name"
+          class="p-1 px-2 mb-3"
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          required
+        /> -->
+
+        <label for="email" class="py-1">Email *</label>
+        <input
+          id="email"
+          class="p-1 px-2 mb-3"
+          type="email"
+          name="email"
+          placeholder="user@email.com"
+          required
+        />
+
+        <label for="password" class="py-1">Password *</label>
+        <input
+          id="password"
+          class="p-1 px-2 mb-3"
+          type="password"
+          name="password"
+          required
+        />
+
+        <!-- <label for="feedback" class="py-1">Submit your message:</label>
+        <textarea
+          id="feedback"
+          class="p-1 px-2 mb-3"
+          rows="5"
+          name="feedback"
+          placeholder="Tell us what you'd like us to know!"
+        ></textarea>
+      </div>
+
+      <p>Would you like to sign up for the newsletter?</p>
+      <input
+        type="radio"
+        id="yes"
+        name="newsletter"
+        value="Yes, sign me up for the newsletter."
+      />
+      <!-- Use bootstrap 5.0 docs! pe is replacing pr. -->
+      <!-- <label for="yes" class="pe-2">Yes</label>
+      <input type="radio" id="no" name="newsletter" value="No, thank you." />
+      <label for="no">No</label> -->
+
+      <div class="buttons-row d-flex gap-2 my-4">
+        <button class="btn btn-primary flex-fill" type="submit" value="Submit">
+          Submit
+        </button>
+        <button class="btn btn-secondary flex-fill" type="reset" value="Reset">
+          Reset
+        </button>
+      </div>
+    </form>
+  </body>
+</html>
