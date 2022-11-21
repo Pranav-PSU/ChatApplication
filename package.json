@@ -10,12 +10,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "dotenv": "^10.0.0",
     "eiows": "^3.6.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.7.2",
     "nodemon": "^2.0.7",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "socket.io": "*"
+    "socket.io": "*",
+    "uuid": "^9.0.0"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.3",
