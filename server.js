@@ -29,12 +29,13 @@ app.use(session_middleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Initialize the login and passport.use() statements for passport!
+initialize_login(passport);
 
 server.listen(port, () => {
   console.log("Server listening at port %d", port);
+  console.log(`http://localhost:${port}`);
 });
-
-initialize_login(passport);
 
 app.get("/", redirect_not_auth, (req, res) => {
   res.sendFile(__dirname + "/public/index.html");

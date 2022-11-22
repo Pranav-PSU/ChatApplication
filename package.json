@@ -21,7 +21,8 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "socket.io": "*",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yup": "^0.32.11"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.3",
