@@ -49,6 +49,7 @@ app.get("/register", redirect_auth, (req, res) => {
 });
 
 app.post("/register", redirect_auth, async (req, res) => {
+
   save_user(req, res);
 });
 

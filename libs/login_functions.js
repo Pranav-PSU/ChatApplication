@@ -57,7 +57,7 @@ const save_user = async (req, res) => {
   try {
     const body = req.body;
     const errors = authenticate_inputs(body);
-    console.log(errors);
+    console.log('returned errors => ', errors);
     const existing_user = await login_model.find({ email: req.body.email });
     if (!existing_user[0]) {
       //if not, add them to the database
@@ -73,6 +73,7 @@ const save_user = async (req, res) => {
       console.log(`document that was added =>`, response);
       res.redirect("/login");
     } else {
+      //Needs an error to let them know that it's already in the database
       res.redirect("/register");
     }
   } catch (err) {

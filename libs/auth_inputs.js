@@ -4,26 +4,26 @@ const registerSchema = Yup.object({
   name: Yup.string()
     .required("Username required")
     .min(5, "Username too short")
-    .max(20, "Username too long."),
+    .max(20, "Username too long"),
   email: Yup.string()
     .required("email required")
     .min(5, "email too short")
-    .max(20, "email too long."),
+    .max(20, "email too long"),
   password: Yup.string()
     .required("Password required")
     .min(5, "Password too short")
-    .max(20, "Password too long."),
+    .max(20, "Password too long"),
 });
 
 const loginSchema = Yup.object({
   email: Yup.string()
     .required("email required")
     .min(5, "email too short")
-    .max(20, "email too long."),
+    .max(20, "email too long"),
   password: Yup.string()
     .required("Password required")
     .min(5, "Password too short")
-    .max(20, "Password too long."),
+    .max(20, "Password too long"),
 });
 
 const authenticate_inputs = (body) => {
@@ -45,9 +45,14 @@ const authenticate_inputs = (body) => {
         err.inner.forEach((error) => {
           errors.push(error.message);
         });
+
+        console.log(errors);
+
+        return errors;
       })
       .then((valid) => {
         if (valid) console.log("form is valid");
+      
       });
   }
 };
