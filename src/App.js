@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
+import { Container, Switch } from "react-bootstrap";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
+import Chat from "./components/chat/chat";
+import Join from "./components/join/join";
+import Dashboard from "./components/dashboard";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <main className="py-3">
+        <Container>
+          <Routes>
+            <Route path="/join" exact element={<Join />} />
+            <Route path="/" exact element={<Chat />} />
+            <Route path="/dashboard" exact element={<Dashboard />} />
+          </Routes>
+        </Container>
+      </main>
+      <Footer />
+    </Router>
   );
 }
 
