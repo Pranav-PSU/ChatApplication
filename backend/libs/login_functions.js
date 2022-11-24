@@ -2,7 +2,7 @@ const login_model = require("../models/login_schema.js");
 const localStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
 const { v4: uuidv4 } = require("uuid");
-const authenticate_inputs = require("./auth_inputs");
+const authenticate_inputs = require("../../src/auth_inputs");
 
 const initialize_login = async (passport) => {
   passport.use(
