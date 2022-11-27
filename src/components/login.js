@@ -6,15 +6,37 @@ import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
 import { useFormik } from "formik";
 import { loginSchema } from "../auth_inputs";
+const port = process.env.BACKEND_PORT || "3000";
 // import * as Yup from "yup";
 
 const Login = () => {
-    //Using formik allows us to define a proper schema for each input in our body, and streamlines returning errors when an input is incorrect
-  const formik = useFormik({                        
+  //Using formik allows us to define a proper schema for each input in our body, and streamlines returning errors when an input is incorrect
+  const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: loginSchema,
     onSubmit: (values, actions) => {
-      alert(JSON.stringify(values, null, 2));
+      //The spread operator
+      // const form_values = {...values}
+      // console.log(values);
+      fetch(`http://localhost:${port}/login`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      })
+        .catch((err) => {
+          return;
+        })
+        .then((res) => {
+          if (!res || !res.ok || res.status >= 400) return;
+          return res.json();
+        })
+        .then((data) => {
+          if (!data) return;
+          // console.log(data);
+        });
       actions.resetForm();
     },
   });
@@ -29,6 +51,7 @@ const Login = () => {
 
           {/*The card body holds the entire form  */}
           <Card.Body>
+            {/* noValidate allows formik to have full control of validation */}
             <Form noValidate onSubmit={formik.handleSubmit}>
               {/* Each form.control and feedback pair must be enclosed in a form.group in order for the feedback to be displayed correctly */}
               <Form.Group controlId="email">

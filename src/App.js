@@ -2,7 +2,7 @@ import "./App.css";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import LinkContainer from "react-router-bootstrap";
+// import LinkContainer from "react-router-bootstrap";
 import Login from "./components/login.js";
 import Home from "./components/home.js";
 import Register from "./components/register";
