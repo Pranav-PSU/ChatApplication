@@ -1,34 +1,38 @@
 const Yup = require("yup");
 
+// These schemas are Yup objects that conform an input to the specified restrictions, then return the 
+// supplied error messages when input is incorrect.
 const registerSchema = Yup.object({
   name: Yup.string()
-    .required("Username required")
-    .min(3, "Username too short")
-    .max(30, "Username too long"),
+    .required("Username required.")
+    .min(3, "Username is too short.")
+    .max(30, "Username is too long."),
   email: Yup.string()
-    .required("email required")
-    .min(5, "email too short")
-    .max(45, "email too long"),
+    .required("Email required.")
+    .email("This is not a proper email.")
+    .min(5, "Email is too short.")
+    .max(45, "Email is too long."),
   password: Yup.string()
-    .required("Password required")
-    .min(8, "Password too short")
-    .max(30, "Password too long"),
+    .required("Password required.")
+    .min(8, "Password must be 8 or more characters.")
+    .max(30, "Password is too long."),
 });
 
 const loginSchema = Yup.object({
   email: Yup.string()
-    .required("email required")
-    .min(5, "email too short")
-    .max(45, "email too long"),
+    .required("Email required.")
+    .email("This is not a proper email.")
+    .min(5, "Email is too short.")
+    .max(45, "Email is too long."),
   password: Yup.string()
-    .required("Password required")
-    .min(8, "Password too short")
-    .max(30, "Password too long"),
+    .required("Password required.")
+    .min(8, "Password must be 8 or more characters.")
+    .max(30, "Password is too long."),
 });
 
 //This is not needed anymore, since the frontend is taking care of validation.
-// const authenticate_inputs = (body) => {
 
+// const authenticate_inputs = (body) => {
 //   if (!body.name) {
 //     loginSchema
 //       .validate(body)

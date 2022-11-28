@@ -7,7 +7,6 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useFormik } from "formik";
 import { loginSchema } from "../auth_inputs";
 const port = process.env.BACKEND_PORT || "3000";
-// import * as Yup from "yup";
 
 const Login = () => {
   //Using formik allows us to define a proper schema for each input in our body, and streamlines returning errors when an input is incorrect
@@ -45,14 +44,14 @@ const Login = () => {
     <main>
       <Container className="vh-100 vw-100 d-flex align-items-center justify-content-center">
         <Card className="w-50">
-          <Card.Header>
+          <Card.Header className="p-4">
             <h1>Login</h1>
           </Card.Header>
 
           {/*The card body holds the entire form  */}
-          <Card.Body>
+          <Card.Body className="p-4">
             {/* noValidate allows formik to have full control of validation */}
-            <Form noValidate onSubmit={formik.handleSubmit}>
+            <Form className="d-flex flex-column gap-3"noValidate onSubmit={formik.handleSubmit}>
               {/* Each form.control and feedback pair must be enclosed in a form.group in order for the feedback to be displayed correctly */}
               <Form.Group controlId="email">
                 <Form.Label>Email</Form.Label>
@@ -93,13 +92,13 @@ const Login = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group controlId="buttons">
-                <Button variant="primary" type="submit">
+              <Form.Group className="d-flex gap-2 mt-4" controlId="buttons">
+                <Button variant="primary" type="submit" size='lg'>
                   Submit
                 </Button>
                 {/* LinkContainer is required for react-router-bootstrap to work */}
                 <LinkContainer to="/register">
-                  <Button variant="secondary">Register</Button>
+                  <Button variant="secondary" size='lg'>Register</Button>
                 </LinkContainer>
               </Form.Group>
             </Form>

@@ -5,9 +5,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
 import { useFormik } from "formik";
-const registerSchema = require('../auth_inputs');
+const { registerSchema } = require("../auth_inputs");
 const port = process.env.BACKEND_PORT || "3000";
-// import * as Yup from "yup";
 
 const Register = () => {
   //Using formik allows us to define a proper schema for each input in our body, and streamlines returning errors when an input is incorrect
@@ -42,17 +41,17 @@ const Register = () => {
   });
 
   return (
-    <main>
+    <main className="">
       <Container className="vh-100 vw-100 d-flex align-items-center justify-content-center">
         <Card className="w-50">
-          <Card.Header>
-            <h1>Register</h1>
+          <Card.Header className = "p-4">
+            <h1 className="">Register</h1>
           </Card.Header>
 
           {/*The card body holds the entire form  */}
-          <Card.Body>
+          <Card.Body className="p-4">
             {/* noValidate allows formik to have full control of validation */}
-            <Form noValidate onSubmit={formik.handleSubmit}>
+            <Form className='d-flex flex-column gap-3 'noValidate onSubmit={formik.handleSubmit}>
               {/* Each form.control and feedback pair must be enclosed in a form.group in order for the feedback to be displayed correctly */}
               <Form.Group controlId="name">
                 <Form.Label>Name</Form.Label>
@@ -112,13 +111,13 @@ const Register = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group controlId="buttons">
-                <Button variant="primary" type="submit">
+              <Form.Group className = "d-flex gap-2 mt-4"controlId="buttons">
+                <Button variant="primary" type="submit" size="lg">
                   Submit
                 </Button>
                 {/* LinkContainer is required for react-router-bootstrap to work */}
-                <LinkContainer to="/register">
-                  <Button variant="secondary">Register</Button>
+                <LinkContainer to="/login">
+                  <Button variant="secondary" size="lg">Login</Button>
                 </LinkContainer>
               </Form.Group>
             </Form>
@@ -129,5 +128,4 @@ const Register = () => {
   );
 };
 
-export default Login;
-
+export default Register;
