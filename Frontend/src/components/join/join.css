@@ -1,4 +1,4 @@
-.OContainer{
+.OContainer {
     background-image: linear-gradient(to left top, #5e757a, #738b92, #88a2aa, #9eb9c3, #b5d1dd);
     background-image: linear-gradient(to left top, #273134, #2d383b, #333f43, #3a464a, #404d52);
     border-color: black;
@@ -14,7 +14,7 @@
     width: 25em;
 }
 
-#root{
+#root {
     background-image: linear-gradient(to left top, #3c4a4d, #49595d, #57686d, #66787f, #758890);
     background-size: cover;
     height: 100%;
@@ -25,69 +25,70 @@
 }
 
 input[type=text]{
-    padding: 12px 20px;
-    margin: 8px 4px;
-    box-sizing: border-box;
-    transition: width 0.3s ease-in-out;
-    width: 99%;
     background-color: #00000040;
-    border-radius: 0.5em;
     border-color: #75939f #191f21 #191f21 #75939f;
     border-color: #80a2ae #121718 #121718 #80a2ae;
+    border-radius: 0.5em;
     border-width: 0.07em;
+    box-sizing: border-box;
     color: #dddddd;
+    margin: 8px 4px;
+    padding: 12px 20px;
+    transition: width 0.3s ease-in-out;
+    width: 99%;  
 }
 
-input[type=text]:focus{
-    width: 100%;
+input[type=text]:focus {   
     border-color: #8eb4c1 #0b0e0f #0b0e0f #0b0e0f;
     border-style: solid;
     border-width: 0.07em;
     outline: none;
+    width: 100%;
 }
 
-input[type=text]:focus:hover{
-    width: 100%;
-    border-color: #8eb4c1 #000000 #000000 #000000;
+input[type=text]:focus:hover {
+    border-color: #a6d2e1 #000000 #000000 #000000;
     border-style: solid;
     border-width: 0.07em;
     outline: none;
+    width: 100%;
 }
 
-input[type=text]:hover{
-    padding: 12px 20px;
-    margin: 8px 4px;
+input[type=text]:hover {
     border-color: #95bdcb #0c0f10 #0c0f10 #95bdcb;
     border-width: 0.07em;
+    margin: 8px 4px;
+    padding: 12px 20px;
+    
 }
 
-.head{
-    text-align: center;
-    margin-bottom: 0.7em;
-    color: #b5d1dd;
+.head {
     color: #dddddd;
+    margin-bottom: 0.7em;
+    text-align: center;
 }
 
-button{
+button {
+    background-color: #4a5c62;
+    /*background-image: linear-gradient(to left top, #4a5c62, #51646b, #586c73, #60757c, #677d85);*/
     margin-top: 1.5em;
     margin-bottom: 0;
-    /*background-image: linear-gradient(to left top, #4a5c62, #51646b, #586c73, #60757c, #677d85);*/
-    width: 40%;
+    border-color: #708b97 #242d30 #242d30 #627a84;
+    border-radius: 0.5em;
+    border-width: 0.07em;
     color: #dddddd;
     padding: 0.5em;
-    border-radius: 0.5em;
     text-align: center;
-    border-color: #405056 #191f21 #191f21 #405056;
-    border-width: 0.07em;
-    background-color: #4a5c62;
     transition: background-color 0.2s ease-in-out;
+    width: 40%;  
 }
 
 button:hover{
-    /*background-image: linear-gradient(to left top, #5d757d, #627b83, #678189, #6d8790, #728d96);*/
     background-color: #627a82;
+    /*background-image: linear-gradient(to left top, #5d757d, #627b83, #678189, #6d8790, #728d96);*/
+    
 }
 button:active{
-    /*background-image: linear-gradient(to left top, #1e272a, #1e2629, #1e2529, #1d2528, #1d2427);*/
     background-color: #1e272a;
+    /*background-image: linear-gradient(to left top, #1e272a, #1e2629, #1e2529, #1d2528, #1d2427);*/ 
 }
