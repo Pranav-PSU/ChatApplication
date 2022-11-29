@@ -5,8 +5,8 @@ const footer = () => {
     <footer>
       <Container>
         <Row>
-          <Col className="text-center py-3">
-            Copyright &copy; FullStack Project
+          <Col className="text-center py-3" style ={{color: "#dddddd"}}>
+            Copyright &copy; {new Date().getFullYear()} Chat Application
           </Col>
         </Row>
       </Container>

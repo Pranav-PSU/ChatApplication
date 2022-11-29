@@ -22,9 +22,10 @@ export default function SignIn() {
   return (
     <div className="OContainer">
       <div className="IContainer">
-        <h1 className="head">Enter Details</h1>
+        <h2 className="head">Enter Chat Room</h2>
         <div>
           <input
+            id="joinChatRoomName"
             placeholder="Name"
             className="username"
             type="text"
@@ -33,6 +34,7 @@ export default function SignIn() {
         </div>
         <div>
           <input
+            id="joinChatRoomRoom"
             placeholder="Room"
             className="roomname mt-20"
             type="text"
@@ -45,7 +47,7 @@ export default function SignIn() {
           to={`/chat?name=${name}&room=${room}`}
         >
           <button className={"button mt-20"} type="submit">
-            Enter in a chatroom
+            Go
           </button>
         </Link>
       </div>
