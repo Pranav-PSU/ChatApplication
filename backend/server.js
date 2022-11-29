@@ -14,6 +14,12 @@ const {
   getUsersInRoom,
   getAllrooms,
 } = require("./users");
+
+const initialize_login = require("./libs/login_functions");
+const mongoose = require("mongoose");
+const session_middleware = require("./libs/server_control");
+const passport = require("passport");
+
 const router = require("./router");
 
 const server = http.createServer(app);
@@ -29,6 +35,10 @@ app.use(
   })
 );
 
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
+
 //CORS parameters for allowing calls from origin
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -41,8 +51,19 @@ app.use(function (req, res, next) {
 
 app.use(cors());
 
+app.use(session_middleware);
+app.use(passport.initialize());
+app.use(passport.session());
+
 //Router implementation
 app.use("/chat/", router);
+
+//Connect to DB for login
+try {
+  mongoose.connect("mongodb://127.0.0.1/sample");
+} catch (err) {
+  console.log(err);
+}
 
 //Socket Events and Listners
 io.on("connect", (socket) => {
