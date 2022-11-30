@@ -108,6 +108,18 @@
     background-color: #1e272a;
     outline: none;
 }
+#inviteButtonModal:hover{
+    background-color: #627a82;
+    
+}
+
+#inviteButtonModal:active{
+    background-color: #1e272a;
+    outline: none;
+}
+#inviteButtonModal{
+    background-color: #4a5c62;
+}
 
 #sendButton:focus {
     outline: none;
@@ -115,4 +127,11 @@
 
 #sendSection {
     margin-top: 0.5em;
+}
+.messagesList {
+    padding: 5% 0;
+    overflow-y: scroll;
+    flex: auto;
+    max-height: 50vh;
+
 }

@@ -92,3 +92,6 @@ button:active{
     background-color: #1e272a;
     /*background-image: linear-gradient(to left top, #1e272a, #1e2629, #1e2529, #1d2528, #1d2427);*/ 
 }
+.inputDiv{
+    width: 100%;
+}
