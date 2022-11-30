@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import queryString from "query-string";
-import io from "socket.io-client";
-
 import ActivePeople from "../ActivePeople/ActivePeople";
 import {
   Card,
@@ -11,12 +9,12 @@ import {
   Modal,
   Toast,
   ToastContainer,
+  Input,
 } from "react-bootstrap";
 import "./chat.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Message from "../Message/Message";
-import ScrollToBottom from "react-scroll-to-bottom";
 import { SocketContext } from "../../Context";
 const APIURL = "http://localhost:4000";
 
@@ -24,6 +22,8 @@ let socket;
 
 const Chat = ({ location }) => {
   socket = useContext(SocketContext);
+  let reference1 = React.useRef();
+
   let id = useParams();
   console.log(id);
   const [name, setName] = useState("");
@@ -39,6 +39,11 @@ const Chat = ({ location }) => {
   // const [roomlist, setRoomlist] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const scrollTo = (ref) => {
+    if (!ref.current) return;
+    ref.current.scrollIntoView({ behavior: "smooth", block: "end" });
+  };
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
@@ -64,6 +69,7 @@ const Chat = ({ location }) => {
       } else {
         setMessages((messages) => [...messages, message]);
       }
+      scrollTo(reference1);
     });
 
     socket.on("roomData", ({ users }) => {
@@ -73,7 +79,6 @@ const Chat = ({ location }) => {
 
   const sendMessage = (event) => {
     event.preventDefault();
-
     if (message) {
       socket.emit("sendMessage", message, () => setMessage(""));
     }
@@ -119,39 +124,51 @@ const Chat = ({ location }) => {
         <Card id="chatCard">
           <Card.Header>
             Room: {room}
-            <Button className="" variant="info" id="inviteButton" onClick={(e) => handleShow()}>
+            <Button
+              className=""
+              variant="info"
+              id="inviteButton"
+              onClick={(e) => handleShow()}
+            >
               Invite
             </Button>
           </Card.Header>
 
           <Card.Body>
             {/* <Messages messages={messages} name={name} /> */}
-            <ScrollToBottom className="messages">
+            <div className="messagesList" id="scrollbottom">
               {messages.map((message, i) => (
                 <div key={i}>
                   <Message message={message} name={name} />
                 </div>
               ))}
-            </ScrollToBottom>
+              <div ref={reference1} />
+            </div>
             <InputGroup
               id="sendSection"
               className="mb-3"
-              placeholder="Type a message..."
-              value={message}
               onChange={({ target: { value } }) => setMessage(value)}
               onKeyPress={(event) =>
                 event.key === "Enter" ? sendMessage(event) : null
               }
             >
-              <Form.Control id="chatTextBox" aria-label="Example text with two button addons" />
-              <Button id= "sendButton"variant="outline-secondary" onClick={(e) => sendMessage(e)}>
+              <Form.Control
+                id="chatTextBox"
+                aria-label=""
+                value={message}
+                placeholder="Type a message..."
+              />
+              <Button
+                id="sendButton"
+                variant="outline-secondary"
+                onClick={(e) => sendMessage(e)}
+              >
                 Send
               </Button>
               {/* <Button variant="outline-secondary">Reset</Button> */}
             </InputGroup>
           </Card.Body>
         </Card>
-
       </div>
 
       <div id="activePeopleContainer">
@@ -187,11 +204,16 @@ const Chat = ({ location }) => {
             onChange={({ target: { value } }) => setEmailAddress(value)}
           />
           <Form.Text id="passwordHelpBlock" muted>
-            Enter the email address, to whom you want to invite in this chat room
+            Enter the email address, to whom you want to invite in this chat
+            room
           </Form.Text>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={(e) => invitePeople(e)}>
+          <Button
+            id="inviteButtonModal"
+            variant="primary"
+            onClick={(e) => invitePeople(e)}
+          >
             Invite
           </Button>
           <Button variant="secondary" onClick={handleClose}>
