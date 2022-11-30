@@ -64,6 +64,7 @@ const Chat = ({ location }) => {
       } else {
         setMessages((messages) => [...messages, message]);
       }
+      setMessage("");
     });
 
     socket.on("roomData", ({ users }) => {
@@ -119,14 +120,19 @@ const Chat = ({ location }) => {
         <Card id="chatCard">
           <Card.Header>
             Room: {room}
-            <Button className="" variant="info" id="inviteButton" onClick={(e) => handleShow()}>
+            <Button
+              className=""
+              variant="info"
+              id="inviteButton"
+              onClick={(e) => handleShow()}
+            >
               Invite
             </Button>
           </Card.Header>
 
           <Card.Body>
             {/* <Messages messages={messages} name={name} /> */}
-            <ScrollToBottom className="messages">
+            <ScrollToBottom className="messagesList">
               {messages.map((message, i) => (
                 <div key={i}>
                   <Message message={message} name={name} />
@@ -143,15 +149,21 @@ const Chat = ({ location }) => {
                 event.key === "Enter" ? sendMessage(event) : null
               }
             >
-              <Form.Control id="chatTextBox" aria-label="Example text with two button addons" />
-              <Button id= "sendButton"variant="outline-secondary" onClick={(e) => sendMessage(e)}>
+              <Form.Control
+                id="chatTextBox"
+                aria-label="Example text with two button addons"
+              />
+              <Button
+                id="sendButton"
+                variant="outline-secondary"
+                onClick={(e) => sendMessage(e)}
+              >
                 Send
               </Button>
               {/* <Button variant="outline-secondary">Reset</Button> */}
             </InputGroup>
           </Card.Body>
         </Card>
-
       </div>
 
       <div id="activePeopleContainer">
@@ -187,7 +199,8 @@ const Chat = ({ location }) => {
             onChange={({ target: { value } }) => setEmailAddress(value)}
           />
           <Form.Text id="passwordHelpBlock" muted>
-            Enter the email address, to whom you want to invite in this chat room
+            Enter the email address, to whom you want to invite in this chat
+            room
           </Form.Text>
         </Modal.Body>
         <Modal.Footer>

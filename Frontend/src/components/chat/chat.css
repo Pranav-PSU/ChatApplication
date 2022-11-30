@@ -116,3 +116,10 @@
 #sendSection {
     margin-top: 0.5em;
 }
+.messagesList {
+    padding: 5% 0;
+    overflow-y: scroll;
+    flex: auto;
+    max-height: 50vh;
+
+}
