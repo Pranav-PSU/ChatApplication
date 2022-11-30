@@ -3,20 +3,20 @@ import "./ActivePeople.css";
 import { Card, ListGroup } from "react-bootstrap";
 const ActivePeople = ({ users }) => (
   <>
-    <Card style={{ width: "18rem" }}>
-      <Card.Header>Featured</Card.Header>
+    <Card id="activePeoplecard">
+      <Card.Header>Participants</Card.Header>
       <ListGroup variant="flush">
         {users ? (
           <div>
-            <h1>People currently chatting:</h1>
+            {/* <h1>People currently chatting:</h1> */}
             <div className="activeContainer">
-              <h2>
+              <h5>
                 {users.map(({ name }) => (
-                  <ListGroup.Item key={name} className="activeItem">
+                  <ListGroup.Item key={name} className="activeItem" id="peoplePresentTile">
                     {name}
                   </ListGroup.Item>
                 ))}
-              </h2>
+              </h5>
             </div>
           </div>
         ) : null}

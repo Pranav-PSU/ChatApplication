@@ -81,12 +81,13 @@ io.on("connect", (socket) => {
     socket.join(user.room);
 
     socket.emit("message", {
-      user: "admin",
-      text: `${user.name}, welcome to room ${user.room}.`,
+      user: "welcomeText",
+      text: `Hello ${user.name}, Welcome to the ${user.room}.  Happy Chatting! `,
     });
-    socket.broadcast
-      .to(user.room)
-      .emit("message", { user: "admin", text: `${user.name} has joined!` });
+    socket.broadcast.to(user.room).emit("message", {
+      user: "welcomeText",
+      text: `${user.name} has joined!`,
+    });
 
     io.to(user.room).emit("roomData", {
       room: user.room,
@@ -122,7 +123,7 @@ io.on("connect", (socket) => {
 
     if (user) {
       io.to(user.room).emit("message", {
-        user: "Admin",
+        user: "welcomeText",
         text: `${user.name} has left.`,
       });
       io.to(user.room).emit("roomData", {

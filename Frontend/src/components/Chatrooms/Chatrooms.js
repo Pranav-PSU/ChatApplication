@@ -17,29 +17,32 @@ const Chatrooms = () => {
     });
 
     socket.on("roomList", ({ roomList }) => {
-      setRoomlist(roomList);
-      //   console.log(roomlist);
+      setRoomlist([...new Set(roomList)]);
+      //console.log(roomlist);
     });
   }, []);
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
-        <Card.Header>Featured</Card.Header>
+      <Card>
+        <Card.Header>AVAILABLE CHAT ROOMS</Card.Header>
         <ListGroup variant="flush">
           {roomlist ? (
-            <div>
-              <h1>Available chatrooms</h1>
+            <div id="holder">
               <div className="activeContainer">
-                <h2>
-                  {roomlist.map((name) => (
-                    <LinkContainer to={`/join?room=${name}`}>
-                      <ListGroup.Item key={name} className="activeItem">
-                        {name}
-                      </ListGroup.Item>
-                    </LinkContainer>
-                  ))}
-                </h2>
+                {/* <h3 id="chatRoomCardTitle"> AVAILABLE CHAT ROOMS */}
+                {roomlist.map((name) => (
+                  <LinkContainer to={`/join?room=${name}`}>
+                    <ListGroup.Item
+                      key={name}
+                      className="activeItem"
+                      id="roomTiles"
+                    >
+                      {name}
+                    </ListGroup.Item>
+                  </LinkContainer>
+                ))}
+                {/* </h3> */}
               </div>
             </div>
           ) : null}

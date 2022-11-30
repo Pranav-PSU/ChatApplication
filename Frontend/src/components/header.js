@@ -10,7 +10,7 @@ const header = () => {
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
         <Container>
           <Link to="/">
-            <Navbar.Brand>Chatx</Navbar.Brand>
+            <Navbar.Brand>Chat Application</Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
