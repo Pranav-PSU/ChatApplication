@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Toast, ToastContainer } from "react-bootstrap";
+import { Toast, ToastContainer, Form, InputGroup } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "./join.css";
 
@@ -51,25 +51,34 @@ export default function SignIn() {
           </Toast>
         </ToastContainer>
         <h2 className="head">Enter Chat Room</h2>
-        <div>
-          <input
-            id="joinChatRoomName"
-            placeholder="Name"
-            className="username"
-            type="text"
-            onChange={(event) => setName(event.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            id="joinChatRoomRoom"
-            placeholder="Room"
-            className="roomname mt-20"
-            type="text"
-            value={room}
-            onChange={(event) => setRoom(event.target.value)}
-          />
-        </div>
+        <InputGroup
+          id="sendSection"
+          className="mb-3"
+          onKeyPress={(event) =>
+            event.key === "Enter" ? checkValidation(event) : null
+          }
+        >
+          <div className="inputDiv">
+            <Form.Control
+              id="joinChatRoomName"
+              placeholder="Name"
+              className="username"
+              type="text"
+              onChange={(event) => setName(event.target.value)}
+            />
+          </div>
+
+          <div className="inputDiv">
+            <Form.Control
+              id="joinChatRoomRoom"
+              placeholder="Room"
+              className="roomname mt-20"
+              type="text"
+              value={room}
+              onChange={(event) => setRoom(event.target.value)}
+            />
+          </div>
+        </InputGroup>
         <Link onClick={(e) => checkValidation(e)}>
           <button className={"button mt-20"} type="submit">
             Go

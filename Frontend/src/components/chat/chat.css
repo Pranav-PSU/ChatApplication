@@ -108,6 +108,18 @@
     background-color: #1e272a;
     outline: none;
 }
+#inviteButtonModal:hover{
+    background-color: #627a82;
+    
+}
+
+#inviteButtonModal:active{
+    background-color: #1e272a;
+    outline: none;
+}
+#inviteButtonModal{
+    background-color: #4a5c62;
+}
 
 #sendButton:focus {
     outline: none;
