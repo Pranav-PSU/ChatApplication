@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { Toast, ToastContainer } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import "./join.css";
 
 export default function SignIn() {
+  let history = useHistory();
   const [name, setName] = useState("");
+  const [validationMessage, setValidationMessage] = useState("");
   const [room, setRoom] = useState("");
-
+  const [showToast, setToastShow] = useState(false);
   useEffect(() => {
     let url = window.location.href;
     let abc = url.split("?")[1];
@@ -17,11 +20,36 @@ export default function SignIn() {
     }
   });
 
-  const checkUrl = () => {};
+  const checkValidation = (e) => {
+    e.preventDefault();
+    if (!name) {
+      setValidationMessage("Please enter your name");
+    } else if (!room) {
+      setValidationMessage("Please enter your room name");
+    } else {
+      console.log("Passed");
+      history.push(`/chat?name=${name}&room=${room}`);
+    }
+    setToastShow(true);
+  };
 
   return (
     <div className="OContainer">
       <div className="IContainer">
+        <ToastContainer className="p-3" position="top-center">
+          <Toast
+            onClose={() => setToastShow(false)}
+            show={showToast}
+            delay={4000}
+            autohide
+          >
+            <Toast.Header className="toastHeader" closeButton={false}>
+              <strong className="me-auto">Chatting Application</strong>
+              {/* <small>11 mins ago</small> */}
+            </Toast.Header>
+            <Toast.Body>{validationMessage}</Toast.Body>
+          </Toast>
+        </ToastContainer>
         <h2 className="head">Enter Chat Room</h2>
         <div>
           <input
@@ -42,10 +70,7 @@ export default function SignIn() {
             onChange={(event) => setRoom(event.target.value)}
           />
         </div>
-        <Link
-          onClick={(e) => (!name || !room ? e.preventDefault() : null)}
-          to={`/chat?name=${name}&room=${room}`}
-        >
+        <Link onClick={(e) => checkValidation(e)}>
           <button className={"button mt-20"} type="submit">
             Go
           </button>
