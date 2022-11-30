@@ -115,41 +115,48 @@ const Chat = ({ location }) => {
 
   return (
     <div className="outerContainer">
-      <Card>
-        <Card.Header>
-          {room}
-          <Button className="" variant="info" onClick={(e) => handleShow()}>
-            Invite
-          </Button>
-        </Card.Header>
-
-        <Card.Body>
-          {/* <Messages messages={messages} name={name} /> */}
-          <ScrollToBottom className="messages">
-            {messages.map((message, i) => (
-              <div key={i}>
-                <Message message={message} name={name} />
-              </div>
-            ))}
-          </ScrollToBottom>
-          <InputGroup
-            className="mb-3"
-            placeholder="Type a message..."
-            value={message}
-            onChange={({ target: { value } }) => setMessage(value)}
-            onKeyPress={(event) =>
-              event.key === "Enter" ? sendMessage(event) : null
-            }
-          >
-            <Form.Control aria-label="Example text with two button addons" />
-            <Button variant="outline-secondary" onClick={(e) => sendMessage(e)}>
-              Send
+      <div id="chatContainer">
+        <Card id="chatCard">
+          <Card.Header>
+            Room: {room}
+            <Button className="" variant="info" id="inviteButton" onClick={(e) => handleShow()}>
+              Invite
             </Button>
-            <Button variant="outline-secondary">Reset</Button>
-          </InputGroup>
-        </Card.Body>
-      </Card>
-      <ActivePeople users={users} />
+          </Card.Header>
+
+          <Card.Body>
+            {/* <Messages messages={messages} name={name} /> */}
+            <ScrollToBottom className="messages">
+              {messages.map((message, i) => (
+                <div key={i}>
+                  <Message message={message} name={name} />
+                </div>
+              ))}
+            </ScrollToBottom>
+            <InputGroup
+              id="sendSection"
+              className="mb-3"
+              placeholder="Type a message..."
+              value={message}
+              onChange={({ target: { value } }) => setMessage(value)}
+              onKeyPress={(event) =>
+                event.key === "Enter" ? sendMessage(event) : null
+              }
+            >
+              <Form.Control id="chatTextBox" aria-label="Example text with two button addons" />
+              <Button id= "sendButton"variant="outline-secondary" onClick={(e) => sendMessage(e)}>
+                Send
+              </Button>
+              {/* <Button variant="outline-secondary">Reset</Button> */}
+            </InputGroup>
+          </Card.Body>
+        </Card>
+
+      </div>
+
+      <div id="activePeopleContainer">
+        <ActivePeople users={users} />
+      </div>
 
       <ToastContainer className="p-3" position="top-center">
         <Toast
@@ -169,7 +176,7 @@ const Chat = ({ location }) => {
       </ToastContainer>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Chatting Application</Modal.Title>
+          <Modal.Title>Invite Participant</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Label htmlFor="inputPassword5">Email Address</Form.Label>
@@ -180,7 +187,7 @@ const Chat = ({ location }) => {
             onChange={({ target: { value } }) => setEmailAddress(value)}
           />
           <Form.Text id="passwordHelpBlock" muted>
-            Enter email address to whome you want to invite in this chatroom
+            Enter the email address, to whom you want to invite in this chat room
           </Form.Text>
         </Modal.Body>
         <Modal.Footer>

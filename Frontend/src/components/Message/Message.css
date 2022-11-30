@@ -1,9 +1,9 @@
 .messageBox {
   background: #F3F3F3;
   border-radius: 20px;
-  padding: 5px 20px;
   color: white;
   display: inline-block;
+  padding: 5px 20px;
   max-width: 80%;
 }
 
@@ -22,15 +22,15 @@
 .messageContainer {
   display: flex;
   justify-content: flex-end;
-  padding: 0 5%;
   margin-top: 3px;
+  padding: 0 5%;
 }
 
 .sentText {
-  display: flex;
   align-items: center;
-  font-family: Helvetica;
   color: #828282;
+  display: flex;
+  font-family: Helvetica;
   letter-spacing: 0.3px;
 }
 
@@ -64,4 +64,18 @@
 
 .backgroundLight {
   background: #F3F3F3;
+}
+
+#ownMessage {
+  background-image: linear-gradient(to left top, #3c4a4d, #49595d, #57686d, #66787f, #758890);
+  text-align: center;
+  vertical-align: middle;
+}
+
+#othersMessage {
+  background-image: linear-gradient(to left top, hsl(191, 12%, 63%), hsl(192, 12%, 53%), hsl(194, 11%, 58%), hsl(197, 11%, 65%), hsl(198, 11%, 71%));
+}
+
+.messageText {
+  margin-bottom: 0;
 }

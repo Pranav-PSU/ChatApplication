@@ -1,0 +1,118 @@
+#inviteButton {
+    background-color: #4a5c62;
+    border-color: #708b97 #242d30 #242d30 #627a84;
+    border-radius: 0.5em;
+    border-width: 0.07em;
+    color: #dddddd;
+    display: inline;
+    float: right;
+    margin: 0;
+    padding: 0;
+    position: relative;  
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    width: 40%;  
+}
+#inviteButton:hover{
+    background-color: #627a82;
+    
+}
+#inviteButton:active{
+    background-color: #1e272a;
+}
+
+#chatCard {
+    display: inline-block;
+    width: 70%;  
+}
+
+.outerContainer {
+    width: 100%;
+}
+
+.container {
+    margin: 200;
+}
+
+#activePeopleContainer{
+    position: fixed;
+    right: -4em;
+    top: 6.75em;
+    width: 50%;
+}
+
+#chatContainer{
+    width: 90%;
+}
+
+#chatTextBox {
+    background-color: #00000040;
+    border-color: #75939f #191f21 #191f21 #75939f;
+    border-color: #80a2ae #121718 #121718 #80a2ae;
+    border-radius: 0.5em;
+    border-width: 0.07em;
+    box-sizing: border-box;
+    color: #dddddd;
+    margin: 8px 4px;
+    padding: 12px 20px;
+    transition: width 0.3s ease-in-out;
+    width: 70%;  
+}
+
+#chatTextBox :focus {   
+    border-color: #8eb4c1 #0b0e0f #0b0e0f #0b0e0f;
+    border-style: solid;
+    border-width: 0.07em;
+    outline: none;
+    width: 70%;
+}
+
+#chatTextBox:focus:hover {
+    border-color: #a6d2e1 #000000 #000000 #000000;
+    border-style: solid;
+    border-width: 0.07em;
+    outline: none;
+    width: 70%;
+}
+
+#chatTextBox:hover {
+    border-color: #95bdcb #0c0f10 #0c0f10 #95bdcb;
+    border-width: 0.07em;
+    margin: 8px 4px;
+    padding: 12px 20px;
+    
+}
+
+#sendButton {
+    background-color: #4a5c62;
+    border-color: #708b97 #242d30 #242d30 #627a84;
+    border-radius: 0.5em;
+    border-width: 0.07em;
+    color: #dddddd;
+    display: inline;
+    float: right;
+    margin: 0.55em;
+    padding: 0;
+    position: relative;  
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    width: 20%;  
+}
+
+#sendButton:hover{
+    background-color: #627a82;
+    
+}
+
+#sendButton:active{
+    background-color: #1e272a;
+    outline: none;
+}
+
+#sendButton:focus {
+    outline: none;
+}
+
+#sendSection {
+    margin-top: 0.5em;
+}
