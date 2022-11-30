@@ -71,19 +71,13 @@ const save_user = async (req, res) => {
 
       console.log(`document that was added =>`, response);
       return res.status(200).json({logged_in: true, message: "Successful register."}).send();
-      // return "success";
-      // res.redirect("/login");
     } else {
       //Needs an error to let them know that it's already in the database
       return res.status(422).json({logged_in: false, message: "An account with this email already exists."}).send();
-      // return "already_in"
-      // res.redirect("/register");
     }
   } catch (err) {
     console.log(err);
     return res.status(404).json({logged_in: false, message: `${err}`}).send();
-    // return "error";
-    // res.redirect("/register");
   }
 };
 

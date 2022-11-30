@@ -10,28 +10,28 @@ import { loginSchema } from "../../auth_inputs";
 import axios from "axios";
 
 const Login = () => {
+
+  const history = useHistory();
+
   // useEffect(() => {
   //     axios
-  //       .get("http://localhost:4001/auth")
+  //       .get("http://localhost:4001/chat/auth")
   //       .then((response) => {
   //         // if (response.status == 200) {
   //           console.log("200");
+  //           return history.push("/");
   //         // }
   //       })
   //       .catch((err) => {
-  //         console.log(err);
+  //         // console.log(err);
   //       });
   // });
-
-  const history = useHistory();
-  const [error, setError] = useState(null);
 
   //Using formik allows us to define a proper schema for each input in our body, and streamlines returning errors when an input is incorrect
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: loginSchema,
     onSubmit: (values, actions) => {
-      setError(null);
       axios
         .post("http://localhost:4001/chat/login", values)
         .then((response) => {
@@ -43,8 +43,8 @@ const Login = () => {
         .catch((err) => {
           console.log(err.response.data);
           alert(`${err.response.data.message}`);
+          actions.resetForm();
         });
-      actions.resetForm();
     },
   });
 

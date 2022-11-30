@@ -12,26 +12,17 @@ const {
 // });
 router.post("/invitePeople", emailSender.sendEmails);
 
-// router.get("/", redirect_not_auth, (req, res) => {
-//   console.log("hi");
-// });
 
 router.get("/auth", (req, res) => {
-  console.log("REACHED AUTH ROUTER");
-  res.status(200).send();
-});
-
-router.get("/register", redirect_auth, (req, res) => {
-  console.log("register");
+  if (req.isAuthenticated())
+    return res.status(200).json({authenticated: true}).send();
+  else
+    return res.status(403).json({authenticated: false}).send();
 });
 
 router.post("/register", (req, res) => {
   console.log(req.body);
   save_user(req, res);
-});
-
-router.get("/login", redirect_auth, (req, res) => {
-  console.log("GET LOGIN ROUTER");
 });
 
 // router.post(
@@ -43,9 +34,6 @@ router.get("/login", redirect_auth, (req, res) => {
 //   })
 // );
 
-// router.post("/login", (req, res) => {
-//   console.log("Hello");
-// })
 
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", function (err, user, info) {
@@ -58,7 +46,6 @@ router.post("/login", (req, res, next) => {
           message: err.message,
         })
         .send();
-      // return next(err);
     }
 
     if (!user) {
@@ -67,13 +54,6 @@ router.post("/login", (req, res, next) => {
           .status(422)
           .json({ logged_in: false, message: info.message })
           .send();
-      // return res
-      //   .status(422)
-      //   .json({
-      //     logged_in: false,
-      //     message: `${"No user found with those credentials!"}`,
-      //   })
-      //   .send();
     }
 
     req.logIn(user, (err) => {
