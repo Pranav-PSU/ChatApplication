@@ -8,11 +8,11 @@ const initialize_login = async (passport) => {
     new localStrategy({ usernameField: "email" }, (email, password, done) => {
       login_model.findOne({ email: email }, async (err, user) => {
         if (err) {
-          console.log(err);
+          // console.log(err);
           return done(err);
         }
         if (!user) {
-          console.log("No user with that email.");
+          // console.log("No user with that email.");
           return done(null, false, {
             message: "No user found with that email.",
           });
@@ -21,10 +21,10 @@ const initialize_login = async (passport) => {
         //Compare found password
         const compared_pass = await bcrypt.compare(password, user.password);
         if (!compared_pass) {
-          console.log("Incorrect pass");
+          // console.log("Incorrect pass");
           return done(null, false, { message: "Incorrect password!" });
         } else {
-          console.log("Successful");
+          // console.log("Successful");
           return done(null, user);
         }
       });
@@ -70,14 +70,20 @@ const save_user = async (req, res) => {
       });
 
       console.log(`document that was added =>`, response);
-      res.redirect("/login");
+      return res.status(200).json({logged_in: true, message: "Successful register."}).send();
+      // return "success";
+      // res.redirect("/login");
     } else {
       //Needs an error to let them know that it's already in the database
-      res.redirect("/register");
+      return res.status(422).json({logged_in: false, message: "An account with this email already exists."}).send();
+      // return "already_in"
+      // res.redirect("/register");
     }
   } catch (err) {
     console.log(err);
-    res.redirect("/register");
+    return res.status(404).json({logged_in: false, message: `${err}`}).send();
+    // return "error";
+    // res.redirect("/register");
   }
 };
 
