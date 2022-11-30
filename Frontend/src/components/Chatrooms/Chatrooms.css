@@ -24,8 +24,8 @@ body{
 }
 
 .card-header{
-    color: #dddddd;  
     background-color: transparent;
+    color: #dddddd;  
     font-size: 1.5em;
     font-weight: 600;
     letter-spacing: 3px;
