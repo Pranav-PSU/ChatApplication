@@ -17,8 +17,8 @@ const Chatrooms = () => {
     });
 
     socket.on("roomList", ({ roomList }) => {
-      setRoomlist(roomList);
-      //   console.log(roomlist);
+      setRoomlist([...new Set(roomList)]);
+      //console.log(roomlist);
     });
   }, []);
 
@@ -31,22 +31,23 @@ const Chatrooms = () => {
             <div id="holder">
               <div className="activeContainer">
                 {/* <h3 id="chatRoomCardTitle"> AVAILABLE CHAT ROOMS */}
-                  {roomlist.map((name) => (
-                    <LinkContainer to={`/join?room=${name}`}>
-                      <ListGroup.Item key={name} className="activeItem" id="roomTiles">
-                        {name}
-                      </ListGroup.Item>
-                    </LinkContainer>
-                  ))}
+                {roomlist.map((name) => (
+                  <LinkContainer to={`/join?room=${name}`}>
+                    <ListGroup.Item
+                      key={name}
+                      className="activeItem"
+                      id="roomTiles"
+                    >
+                      {name}
+                    </ListGroup.Item>
+                  </LinkContainer>
+                ))}
                 {/* </h3> */}
               </div>
             </div>
           ) : null}
         </ListGroup>
       </Card>
-      <div id="spacer">
-
-      </div>
     </>
   );
 };

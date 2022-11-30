@@ -3,7 +3,15 @@ import queryString from "query-string";
 import io from "socket.io-client";
 
 import ActivePeople from "../ActivePeople/ActivePeople";
-import { Card, Button, InputGroup, Form, Modal } from "react-bootstrap";
+import {
+  Card,
+  Button,
+  InputGroup,
+  Form,
+  Modal,
+  Toast,
+  ToastContainer,
+} from "react-bootstrap";
 import "./chat.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -21,6 +29,9 @@ const Chat = ({ location }) => {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
   const [users, setUsers] = useState("");
+  const [showToast, setToastShow] = useState(false);
+  const [welcomeMessage, setWelcomeMessage] = useState("");
+  const [toastMessage, setToastMessage] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [show, setShow] = useState(false);
@@ -46,7 +57,13 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     socket.on("message", (message) => {
-      setMessages((messages) => [...messages, message]);
+      if (message.user == "welcomeText") {
+        setWelcomeMessage((messages) => [...messages, message]);
+        setToastMessage(message.text);
+        setToastShow(true);
+      } else {
+        setMessages((messages) => [...messages, message]);
+      }
     });
 
     socket.on("roomData", ({ users }) => {
@@ -65,7 +82,7 @@ const Chat = ({ location }) => {
     event.preventDefault();
 
     console.log(emailaddress);
-    if (emailaddress !== null) {
+    if (emailaddress !== "") {
       let url = window.location.href;
       let origin = window.location.origin;
       let splitUrl = url.split("?")[1];
@@ -73,6 +90,8 @@ const Chat = ({ location }) => {
 
       const options = {
         url: `${origin}?${splitUrl1}`,
+        personName: name,
+        roomName: room,
         email: emailaddress,
       };
 
@@ -88,6 +107,9 @@ const Chat = ({ location }) => {
           console.log(err);
         });
       console.log(`${origin}?${splitUrl1}`);
+    } else {
+      setToastMessage("Please Enter Email Address");
+      setToastShow(true);
     }
   };
 
@@ -128,16 +150,33 @@ const Chat = ({ location }) => {
         </Card.Body>
       </Card>
       <ActivePeople users={users} />
-      <Modal show={show} onHide={handleClose}>
+
+      <ToastContainer className="p-3" position="top-center">
+        <Toast
+          onClose={() => setToastShow(false)}
+          show={showToast}
+          delay={4000}
+          autohide
+        >
+          <Toast.Header className="toastHeader" closeButton={false}>
+            <strong className="me-auto">Chatting Application</strong>
+          </Toast.Header>
+          <Toast.Body>
+            {toastMessage}
+            {/* Hello {name} Welcome to the {room} Happy Chatting! */}
+          </Toast.Body>
+        </Toast>
+      </ToastContainer>
+      <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Chatting Application</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form.Label htmlFor="inputPassword5">Password</Form.Label>
+          <Form.Label htmlFor="inputPassword5">Email Address</Form.Label>
           <Form.Control
             type="email"
             id="emailtext"
-            placeholder="Email address"
+            placeholder=""
             onChange={({ target: { value } }) => setEmailAddress(value)}
           />
           <Form.Text id="passwordHelpBlock" muted>

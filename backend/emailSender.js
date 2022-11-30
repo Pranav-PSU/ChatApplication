@@ -6,11 +6,9 @@ const genRand = (len) => {
 
 exports.sendEmails = (req, res) => {
   let email = req.body.email;
-  let text =
-    "hello click here to join the chatroom: " +
-    req.body.url +
-    " <br> Use this password to Join the room: " +
-    genRand();
+  let personName = req.body.personName;
+  let roomName = req.body.roomName;
+  let text = `hi there, <br> ${personName} has invited you in a chatroom "${roomName}". <br>Please click on the link below to join the conversation :<br> ${req.body.url}`;
   let subject = "Invitation for the chatroom";
 
   var nodemailer = require("nodemailer");
@@ -25,7 +23,7 @@ exports.sendEmails = (req, res) => {
     from: "dharamthokpranav@gmail.com", // sender address
     to: email, // list of receivers
     subject: subject, // Subject line
-    html: "<h2>" + text + "</h2>", // plain text body
+    html: "<h4>" + text + "</h4>", // plain text body
   };
   transporter.sendMail(mailOptions, function (err, info) {
     if (err) {
