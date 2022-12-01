@@ -14,20 +14,18 @@ const {
   getUsersInRoom,
   getAllrooms,
 } = require("./users");
+
+const {initialize_login} = require("./libs/login_functions");
+const mongoose = require("mongoose");
+const session_middleware = require("./libs/server_control");
+const passport = require("passport");
+
 const router = require("./router");
 
 const server = http.createServer(app);
 const io = socketio(server);
 
-//Bodyparser initialization
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(
-  bodyParser.urlencoded({
-    limit: "50mb",
-    extended: true,
-    parameterLimit: 1000000,
-  })
-);
+
 
 //CORS parameters for allowing calls from origin
 app.use(function (req, res, next) {
@@ -41,8 +39,33 @@ app.use(function (req, res, next) {
 
 app.use(cors());
 
+//Bodyparser initialization
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(
+  bodyParser.urlencoded({
+    limit: "50mb",
+    extended: true,
+    parameterLimit: 1000000,
+  })
+);
+
+app.use(session_middleware);
+app.use(passport.initialize());
+app.use(passport.session());
+
+initialize_login(passport);
+
+
 //Router implementation
 app.use("/chat/", router);
+
+// Connect to DB for login
+try {
+  mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@fullstackcluster.w3kccl2.mongodb.net/logins?retryWrites=true&w=majority`);
+  
+} catch (err) {
+  console.log(err);
+}
 
 //Socket Events and Listners
 io.on("connect", (socket) => {

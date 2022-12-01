@@ -14,6 +14,8 @@ import Join from "./components/join/join";
 import Dashboard from "./components/dashboard";
 import Chatrooms from "./components/Chatrooms/Chatrooms";
 import { SocketContext, socket } from "./Context";
+import Login from "./components/Login_pages/login";
+import Register from "./components/Login_pages/register";
 function App() {
   return (
     <Router>
@@ -23,7 +25,8 @@ function App() {
           <Container>
             <Switch>
               <Route path="/" exact component={Join} />
-              <Route path="/login" exact component={Join} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/register" exact component={Register}/>
               <Route path="/join" exact component={Join} />
               <Route path="/chat" component={Chat} />
               <Route path="/chatrooms" component={Chatrooms} />
