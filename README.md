@@ -26,7 +26,7 @@ A non-exhaustive list of the distinctive features intended to be added to the ch
 - The browser should launch with a tab running the Chat Application.
 ---
 
-## Outside References
+## References
 
 - https://www.educative.io/answers/class-and-id-selectors-in-css
 - https://www.youtube.com/watch?v=OXGznpKZ_sA 
