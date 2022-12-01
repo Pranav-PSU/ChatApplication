@@ -26,9 +26,6 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 
-// app.use(express.json());
-// app.use(express.urlencoded({extended:false}));
-
 
 //CORS parameters for allowing calls from origin
 app.use(function (req, res, next) {
@@ -62,9 +59,8 @@ initialize_login(passport);
 //Router implementation
 app.use("/chat/", router);
 
-//Connect to DB for login
+// Connect to DB for login
 try {
-  // mongoose.connect(`mongodb+srv://sam:<password>@fullstackcluster.w3kccl2.mongodb.net/test`);
   mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@fullstackcluster.w3kccl2.mongodb.net/logins?retryWrites=true&w=majority`);
   
 } catch (err) {

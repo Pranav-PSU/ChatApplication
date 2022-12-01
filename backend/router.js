@@ -13,6 +13,7 @@ const {
 router.post("/invitePeople", emailSender.sendEmails);
 
 
+// Not used yet
 router.get("/auth", (req, res) => {
   if (req.isAuthenticated())
     return res.status(200).json({authenticated: true}).send();
@@ -20,11 +21,15 @@ router.get("/auth", (req, res) => {
     return res.status(403).json({authenticated: false}).send();
 });
 
+
+// Post from backend to save the user's data on register.
 router.post("/register", (req, res) => {
   console.log(req.body);
   save_user(req, res);
 });
 
+
+// Alternative that has not been made to work
 // router.post(
 //   "/login",
 //   passport.authenticate("local", {
@@ -35,7 +40,9 @@ router.post("/register", (req, res) => {
 // );
 
 
+// Post from backend to log the user in and authenticate with passport.
 router.post("/login", (req, res, next) => {
+  // Passport will authenticate using the local strategy in login_functions.js
   passport.authenticate("local", function (err, user, info) {
     if (err) {
       console.log(err);
@@ -49,6 +56,8 @@ router.post("/login", (req, res, next) => {
     }
 
     if (!user) {
+      // If the user is not authenticated, passport will send back a message that we specify.
+      // The message is not an error, but is returned as info.
       if (info)
         return res
           .status(422)
@@ -56,12 +65,12 @@ router.post("/login", (req, res, next) => {
           .send();
     }
 
+    // We use passport's logIn function to log the user in manually 
     req.logIn(user, (err) => {
       if (err) {
         console.log(err);
         return next(err);
       }
-      console.log("successful redirect");
       return res
         .status(200)
         .json({ logged_in: true, message: "logged-in" })

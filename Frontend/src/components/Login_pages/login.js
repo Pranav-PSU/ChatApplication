@@ -6,8 +6,9 @@ import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
-import { loginSchema } from "../../auth_inputs";
+import { loginSchema } from "../../auth/auth_inputs";
 import axios from "axios";
+import "./login.css"
 
 const Login = () => {
 
@@ -27,21 +28,22 @@ const Login = () => {
   //       });
   // });
 
-  //Using formik allows us to define a proper schema for each input in our body, and streamlines returning errors when an input is incorrect
+  // Using formik allows us to define a proper schema for each input in our body, and streamlines returning errors when an input is incorrect
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: loginSchema,
     onSubmit: (values, actions) => {
+      // Post to login and authenticate user login inputs. 
       axios
         .post("http://localhost:4001/chat/login", values)
         .then((response) => {
           if (response.status == 200) {
-            console.log(response);
+            console.log(response);            // If logged in correctly, server responds with 200 and we can navigate user to home directory.
             return history.push("/");
           }
         })
         .catch((err) => {
-          console.log(err.response.data);
+          console.log(err.response.data);     // Otherwise, server passes back error message and we alert the user of it, reset form.
           alert(`${err.response.data.message}`);
           actions.resetForm();
         });
@@ -65,7 +67,7 @@ const Login = () => {
           >
             {/* Each form.control and feedback pair must be enclosed in a form.group in order for the feedback to be displayed correctly */}
             <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label className="form-label">Email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
@@ -85,7 +87,7 @@ const Login = () => {
 
             {/* controlID neatly assigns the proper ID to the label and input inside it! */}
             <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label className="form-label">Password</Form.Label>
               <Form.Control
                 type="password"
                 name="password"
@@ -104,12 +106,12 @@ const Login = () => {
             </Form.Group>
 
             <Form.Group className="d-flex gap-2 mt-4" controlId="buttons">
-              <Button variant="primary" type="submit" size="lg">
+              <Button className="button"variant="primary" type="submit" size="lg">
                 Submit
               </Button>
               {/* LinkContainer is required for react-router-bootstrap to work */}
               <LinkContainer to="/register">
-                <Button variant="secondary" size="lg">
+                <Button className="button" variant="secondary" size="lg">
                   Register
                 </Button>
               </LinkContainer>

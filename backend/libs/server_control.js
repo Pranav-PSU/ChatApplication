@@ -1,3 +1,5 @@
+// Outline our session middleware to not take up extra space in routing.
+
 const session = require('express-session');
 require("dotenv").config();
 
