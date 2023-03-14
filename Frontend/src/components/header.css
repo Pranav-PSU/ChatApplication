@@ -1,5 +1,4 @@
 #logo-container {
-  /* border-radius: 0.5em; */
   color: #dddddd;
   display: flex;
   flex-direction: column;
@@ -17,7 +16,6 @@
 .nav-bar {
   display: flex;
   width: 100%;
-  /* padding: 0.5em; */
 }
 
 #nav-bar-container {
@@ -55,13 +53,11 @@
 }
 
 .nav-list-item {
-  /* border-radius: 0.5em; */
   display: flex;
   flex-direction: column;
   font-size: 1.2em;
   height: 100%;
   justify-content: center;
-  /* margin-right: 0.5em; */
   padding: 1em;
   margin: auto;
   margin-bottom: 0;
