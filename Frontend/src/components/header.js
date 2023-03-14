@@ -1,30 +1,29 @@
-import React from "react";
-// import { LinkContainer } from "react-router-bootstrap";
-import { Navbar, Container, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
+import React from 'react';
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
+import './header.css';
 
 const header = () => {
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
-        <Container>
-          <Link to="/">
-            <Navbar.Brand>Chat Application</Navbar.Brand>
+      <div id="nav-bar-container">
+        <nav class="nav-bar">
+          <Link to="/" id="logo-container">
+            CHAT APPLICATION
           </Link>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              <LinkContainer to="/Join">
-                <Nav.Link>Dashboard</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/chatrooms">
-                <Nav.Link>Chatrooms</Nav.Link>
-              </LinkContainer>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+          <div id="nav-link-container">
+            <ul class="nav-list">
+              <Link to="/Join" class="nav-link">
+                <li class="nav-list-item">DASHBOARD</li>
+              </Link>
+              <Link to="/chatrooms" class="nav-link">
+                <li class="nav-list-item">CHAT ROOMS</li>
+              </Link>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </header>
   );
 };
