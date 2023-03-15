@@ -108,6 +108,7 @@ body {
   border-radius: 0.5em;
   border-width: 0.09em;
   color: rgb(221, 221, 221);
+  cursor: pointer;
   display: inline-block;
   margin-bottom: 1em;
   margin-left: 0;
@@ -120,10 +121,10 @@ body {
   width: 40%;
 }
 
-#room-tiles :hover {
+#room-tiles:hover {
   background-color: rgb(98, 122, 130);
 }
 
-#room-tiles :active {
+#room-tiles:active {
   background-color: rgb(30, 39, 42);
 }
