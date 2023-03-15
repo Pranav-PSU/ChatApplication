@@ -1,7 +1,7 @@
 .messageBox {
-  background: #F3F3F3;
+  background: rgb(243, 243, 243);
   border-radius: 20px;
-  color: white;
+  color: rgb(255, 255, 255);
   display: inline-block;
   padding: 5px 20px;
   max-width: 80%;
@@ -28,10 +28,12 @@
 
 .sentText {
   align-items: center;
-  color: #828282;
+  color: rgb(130, 130, 130);
   display: flex;
   font-family: Helvetica;
   letter-spacing: 0.3px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .pl-10 {
@@ -40,6 +42,8 @@
 
 .pr-10 {
   padding-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .justifyStart {
@@ -51,29 +55,56 @@
 }
 
 .colorWhite {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .colorDark {
-  color: #353535;
+  color: rgb(53, 53, 53);
 }
 
 .backgroundBlue {
-  background: #2979FF;
+  background: rgb(41, 121, 255);
 }
 
 .backgroundLight {
-  background: #F3F3F3;
+  background: rgb(243, 243, 243);
+}
+
+.messagesList::-webkit-scrollbar {
+  width: 1em;
+}
+
+.messagesList::-webkit-scrollbar-track {
+  box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 1);
+}
+
+.messagesList::-webkit-scrollbar-thumb {
+  background-color: rgb(74, 92, 98);
+  border-color: rgb(36, 45, 48) rgb(63, 77, 81) rgb(63, 77, 81) rgb(36, 45, 48);
 }
 
 #ownMessage {
-  background-image: linear-gradient(to left top, #3c4a4d, #49595d, #57686d, #66787f, #758890);
+  background-image: linear-gradient(
+    to left top,
+    rgb(60, 74, 77),
+    rgb(73, 89, 93),
+    rgb(87, 104, 109),
+    rgb(102, 120, 127),
+    rgb(117, 136, 144)
+  );
   text-align: center;
   vertical-align: middle;
 }
 
 #othersMessage {
-  background-image: linear-gradient(to left top, hsl(191, 12%, 63%), hsl(192, 12%, 53%), hsl(194, 11%, 58%), hsl(197, 11%, 65%), hsl(198, 11%, 71%));
+  background-image: linear-gradient(
+    to left top,
+    rgb(149, 168, 172),
+    rgb(121, 144, 150),
+    rgb(136, 154, 160),
+    rgb(156, 170, 176),
+    rgb(173, 184, 189)
+  );
 }
 
 .messageText {
