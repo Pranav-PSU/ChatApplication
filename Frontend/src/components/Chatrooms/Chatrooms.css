@@ -1,114 +1,127 @@
-body{
-    background-attachment: fixed;
-    background-image: linear-gradient(to left top, #3c4a4d, #49595d, #57686d, #66787f, #758890);   
+body {
+  background-attachment: fixed;
+  background-image: linear-gradient(
+    to left top,
+    #3c4a4d,
+    #49595d,
+    #57686d,
+    #66787f,
+    #758890
+  );
 }
 
-.card{
-    background-image: linear-gradient(to left top, #273134, #2d383b, #333f43, #3a464a, #404d52);
-    border-color: black;
-    border-radius: 0.5em;
-    border-style: solid;
-    border-width: 0.05em;
-    box-shadow: 0.2em 0.2em 0.2em #333333;
-    margin: auto;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    max-height: fit-content;
-    padding: 1em;
-    text-align: center;
-    width: 50%;   
+.card {
+  background-image: linear-gradient(
+    to left top,
+    #273134,
+    #2d383b,
+    #333f43,
+    #3a464a,
+    #404d52
+  );
+  border-color: black;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 0.05em;
+  box-shadow: 0.2em 0.2em 0.2em #333333;
+  margin: auto;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  max-height: fit-content;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+  width: fit-content;
 }
 
-.list-group{
-    width: 100%;
+.list-group {
+  width: 100%;
 }
 
-.card-header{
-    background-color: transparent;
-    color: #dddddd;  
-    font-size: 1.5em;
-    font-weight: 600;
-    letter-spacing: 3px;
-    line-height: 1.2;
-    margin-bottom: 1em;
-    padding-top: 0;
-    text-transform: uppercase; 
-    width: 100%;
+.card-header {
+  background-color: transparent;
+  color: #dddddd;
+  font-size: 1.5em;
+  font-weight: 600;
+  letter-spacing: 3px;
+  line-height: 1.2;
+  margin-bottom: 1em;
+  padding-top: 0;
+  text-transform: uppercase;
+  width: 100%;
 }
 
-.activeItem{
-    background-color: #4a5c62;
-    border-color: #708b97 #242d30 #242d30 #627a84;
-    border-radius: 0.5em;
-    border-width: 0.09em;
-    color: #dddddd;
-    display: inline-block;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 1em;
-    margin-top: 0;
-    padding: 0.5em;
-    position: relative;
-    text-align: center;
-    transition: background-color 0.2s ease-in-out;
-    width: 40%; 
+.activeItem {
+  background-color: #4a5c62;
+  border-color: #708b97 #242d30 #242d30 #627a84;
+  border-radius: 0.5em;
+  border-width: 0.09em;
+  color: #dddddd;
+  display: inline-block;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 1em;
+  margin-top: 0;
+  padding: 0.5em;
+  position: relative;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+  width: 40%;
 }
 
-.activeItem:hover{
-    background-color: #627a82;
+.activeItem:hover {
+  background-color: #627a82;
 }
 
-.activeItem:active{
-    background-color: #1e272a;
+.activeItem:active {
+  background-color: #1e272a;
 }
 
-#chatRoomCardTitle{
-    color: #dddddd;
-    display: block;
-    margin: 0;
-    margin-bottom: 4em;
-    padding: 0;
-    text-align: center; 
+#chatRoomCardTitle {
+  color: #dddddd;
+  display: block;
+  margin: 0;
+  margin-bottom: 4em;
+  padding: 0;
+  text-align: center;
 }
 
-#spacer{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+#spacer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.activeContainer{
-    display: inline-block;
-    margin-bottom: 1em;
+.activeContainer {
+  margin-bottom: 1em;
 }
 
-#holder{
-    max-height: fit-content;
+#holder {
+  max-height: fit-content;
 }
 
-#roomTiles{
-    background-color: #4a5c62;
-    border-color: #708b97 #242d30 #242d30 #627a84;
-    border-radius: 0.5em;
-    border-width: 0.09em;
-    color: #dddddd;
-    display: inline-block;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 1em;
-    margin-top: 0;  
-    padding: 0.5em;
-    position: relative;
-    text-align: center;
-    transition: background-color 0.2s ease-in-out;
-    width: 40%;
-
+#roomTiles {
+  background-color: #4a5c62;
+  border-color: #708b97 #242d30 #242d30 #627a84;
+  border-radius: 0.5em;
+  border-width: 0.09em;
+  color: #dddddd;
+  display: inline-block;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 1em;
+  margin-top: 0;
+  padding: 0.5em;
+  position: relative;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+  width: 40%;
 }
 
-#roomTiles:hover{
-    background-color: #627a82;
+#roomTiles:hover {
+  background-color: #627a82;
 }
 
-#roomTiles:active{
-    background-color: #1e272a;
+#roomTiles:active {
+  background-color: #1e272a;
 }
