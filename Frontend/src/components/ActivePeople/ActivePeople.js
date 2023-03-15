@@ -1,18 +1,21 @@
-import React from "react";
-import "./ActivePeople.css";
-import { Card, ListGroup } from "react-bootstrap";
+import React from 'react';
+import './ActivePeople.css';
+import { Card, ListGroup } from 'react-bootstrap';
 const ActivePeople = ({ users }) => (
   <>
-    <Card id="activePeoplecard">
+    <Card id="active-people-card">
       <Card.Header>Participants</Card.Header>
       <ListGroup variant="flush">
         {users ? (
           <div>
-            {/* <h1>People currently chatting:</h1> */}
-            <div className="activeContainer">
+            <div className="active-container">
               <h5>
                 {users.map(({ name }) => (
-                  <ListGroup.Item key={name} className="activeItem" id="peoplePresentTile">
+                  <ListGroup.Item
+                    key={name}
+                    className="active-item"
+                    id="people-present-tile"
+                  >
                     {name}
                   </ListGroup.Item>
                 ))}

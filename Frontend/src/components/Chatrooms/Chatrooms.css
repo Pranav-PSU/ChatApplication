@@ -70,15 +70,15 @@ body {
   width: 40%;
 }
 
-.activeItem:hover {
+.active-item:hover {
   background-color: rgb(98, 122, 130);
 }
 
-.activeItem:active {
+.active-item:active {
   background-color: rgb(30, 39, 42);
 }
 
-#chatRoomCardTitle {
+#chat-room-card-title {
   color: rgb(221, 221, 221);
   display: block;
   margin: 0;
@@ -93,7 +93,7 @@ body {
   height: 100%;
 }
 
-.activeContainer {
+.active-container {
   margin-bottom: 1em;
 }
 
@@ -101,9 +101,10 @@ body {
   max-height: fit-content;
 }
 
-#roomTiles {
+#room-tiles {
   background-color: rgb(74, 92, 98);
-  border-color: rgb(112, 139, 151) rgb(36, 45, 48) rgb(36, 45, 48) rgb(98, 122, 132);
+  border-color: rgb(112, 139, 151) rgb(36, 45, 48) rgb(36, 45, 48)
+    rgb(98, 122, 132);
   border-radius: 0.5em;
   border-width: 0.09em;
   color: rgb(221, 221, 221);
@@ -119,10 +120,10 @@ body {
   width: 40%;
 }
 
-#roomTiles:hover {
+#room-tiles :hover {
   background-color: rgb(98, 122, 130);
 }
 
-#roomTiles:active {
+#room-tiles :active {
   background-color: rgb(30, 39, 42);
 }

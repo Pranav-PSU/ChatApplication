@@ -1,4 +1,4 @@
-.messageBox {
+.message-box {
   background: rgb(243, 243, 243);
   border-radius: 20px;
   color: rgb(255, 255, 255);
@@ -7,7 +7,7 @@
   max-width: 80%;
 }
 
-.messageText {
+.message-text {
   width: 100%;
   letter-spacing: 0;
   float: left;
@@ -15,18 +15,18 @@
   word-wrap: break-word;
 }
 
-.messageText img {
+.message-text img {
   vertical-align: middle;
 }
 
-.messageContainer {
+.message-container {
   display: flex;
   justify-content: flex-end;
   margin-top: 3px;
   padding: 0 5%;
 }
 
-.sentText {
+.sent-text {
   align-items: center;
   color: rgb(130, 130, 130);
   display: flex;
@@ -46,44 +46,44 @@
   margin-bottom: auto;
 }
 
-.justifyStart {
+.justify-start {
   justify-content: flex-start;
 }
 
-.justifyEnd {
+.justify-end {
   justify-content: flex-end;
 }
 
-.colorWhite {
+.color-white {
   color: rgb(255, 255, 255);
 }
 
-.colorDark {
+.color-dark {
   color: rgb(53, 53, 53);
 }
 
-.backgroundBlue {
+.background-blue {
   background: rgb(41, 121, 255);
 }
 
-.backgroundLight {
+.background-light {
   background: rgb(243, 243, 243);
 }
 
-.messagesList::-webkit-scrollbar {
+.messages-list::-webkit-scrollbar {
   width: 1em;
 }
 
-.messagesList::-webkit-scrollbar-track {
+.messages-list::-webkit-scrollbar-track {
   box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 1);
 }
 
-.messagesList::-webkit-scrollbar-thumb {
+.messages-list::-webkit-scrollbar-thumb {
   background-color: rgb(74, 92, 98);
   border-color: rgb(36, 45, 48) rgb(63, 77, 81) rgb(63, 77, 81) rgb(36, 45, 48);
 }
 
-#ownMessage {
+#own-message {
   background-image: linear-gradient(
     to left top,
     rgb(60, 74, 77),
@@ -96,7 +96,7 @@
   vertical-align: middle;
 }
 
-#othersMessage {
+#others-message {
   background-image: linear-gradient(
     to left top,
     rgb(149, 168, 172),
@@ -107,6 +107,6 @@
   );
 }
 
-.messageText {
+.message-text {
   margin-bottom: 0;
 }
