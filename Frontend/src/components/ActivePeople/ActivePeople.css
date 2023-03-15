@@ -1,22 +1,10 @@
 .textContainer {
   color: white;
-  display: flex;
   flex-direction: column;
   height: 60%;
   justify-content: space-between;
   margin-left: 100px;
 }
-
-/* .activeContainer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 50%;
-} */
-
-/* .activeItem {
-  display: flex;
-  align-items: center;
-} */
 
 #activePeopleCard {
   min-width: 800px;
@@ -25,17 +13,45 @@
   top: 20;
 }
 
-#peoplePresentTile{
+#peoplePresentTile {
   background-color: #4a5c62;
-  background-image: linear-gradient(to right bottom, #273235, #2d393c, #333f43, #39464a, #3f4d51);
-  background-image: linear-gradient(to top, #273235, #2d393c, #333f43, #39464a, #3f4d51);
-  background-image: linear-gradient(to top, #273235, #2a3539, #2d393c, #303c40, #334044);
-  background-image: linear-gradient(to top, #273235, #2a3539, #2d393c, #303c40, #334044);
-  border-color: #242d30 #3F4D51 #3F4D51 #242d30;
+  background-image: linear-gradient(
+    to right bottom,
+    #273235,
+    #2d393c,
+    #333f43,
+    #39464a,
+    #3f4d51
+  );
+  background-image: linear-gradient(
+    to top,
+    #273235,
+    #2d393c,
+    #333f43,
+    #39464a,
+    #3f4d51
+  );
+  background-image: linear-gradient(
+    to top,
+    #273235,
+    #2a3539,
+    #2d393c,
+    #303c40,
+    #334044
+  );
+  background-image: linear-gradient(
+    to top,
+    #273235,
+    #2a3539,
+    #2d393c,
+    #303c40,
+    #334044
+  );
+  border-color: #242d30 #3f4d51 #3f4d51 #242d30;
   border-radius: 0.5em;
   border-width: 0.09em;
   color: #dddddd;
-  display: inline-block;
+  display: block;
   margin-bottom: 1em;
   margin-left: 0;
   margin-right: 1em;
@@ -44,17 +60,9 @@
   position: relative;
   text-align: center;
   transition: background-color 0.2s ease-in-out;
-  /* width: 40%;  */
+  width: fit-content;
+  width: 100%;
 }
-
-/* .activeItem:hover{
-  background-color: #627a82;
-}
-
-.activeItem:active{
-  background-color: #1e272a;
-} */
-
 
 .activeContainer img {
   padding-left: 10px;
