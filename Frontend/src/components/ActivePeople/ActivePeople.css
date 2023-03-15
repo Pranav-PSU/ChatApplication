@@ -18,11 +18,11 @@
   );
   background-image: linear-gradient(
     to top,
-    #273235,
-    #2d393c,
-    #333f43,
-    #39464a,
-    #3f4d51
+    rgb(39, 50, 53),
+    rgb(45, 57, 60),
+    rgb(51, 63, 67),
+    rgb(57, 70, 74),
+    rgb(63, 77, 81)
   );
   background-image: linear-gradient(
     to top,
