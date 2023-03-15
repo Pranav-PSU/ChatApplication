@@ -107,7 +107,7 @@ body {
     rgb(98, 122, 132);
   border-radius: 0.5em;
   border-width: 0.09em;
-  box-shadow: 1px 1px 2px black;
+  box-shadow: 1px 1px 2px rgb(0, 0, 0);
   color: rgb(221, 221, 221);
   cursor: pointer;
   display: inline-block;
