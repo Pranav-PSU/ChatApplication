@@ -1,5 +1,5 @@
 .textContainer {
-  color: white;
+  color: rgb(255, 255, 255);
   flex-direction: column;
   height: 60%;
   justify-content: space-between;
@@ -14,14 +14,14 @@
 }
 
 #peoplePresentTile {
-  background-color: #4a5c62;
+  background-color: rgb(74, 92, 98);
   background-image: linear-gradient(
     to right bottom,
-    #273235,
-    #2d393c,
-    #333f43,
-    #39464a,
-    #3f4d51
+    rgb(39, 50, 53),
+    rgb(45, 57, 60),
+    rgb(51, 63, 67),
+    rgb(57, 70, 74),
+    rgb(63, 77, 81)
   );
   background-image: linear-gradient(
     to top,
@@ -33,24 +33,24 @@
   );
   background-image: linear-gradient(
     to top,
-    #273235,
-    #2a3539,
-    #2d393c,
-    #303c40,
-    #334044
+    rgb(39, 50, 53),
+    rgb(42, 53, 57),
+    rgb(45, 57, 60),
+    rgb(48, 60, 64),
+    rgb(51, 64, 68)
   );
   background-image: linear-gradient(
     to top,
-    #273235,
-    #2a3539,
-    #2d393c,
-    #303c40,
-    #334044
+    rgb(39, 50, 53),
+    rgb(42, 53, 57),
+    rgb(45, 57, 60),
+    rgb(48, 60, 64),
+    rgb(51, 64, 68)
   );
-  border-color: #242d30 #3f4d51 #3f4d51 #242d30;
+  border-color: rgb(36, 45, 48) rgb(63, 77, 81) rgb(63, 77, 81) rgb(36, 45, 48);
   border-radius: 0.5em;
   border-width: 0.09em;
-  color: #dddddd;
+  color: rgb(221, 221, 221);
   display: block;
   margin-bottom: 1em;
   margin-left: 0;
