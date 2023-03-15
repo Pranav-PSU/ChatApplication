@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Toast, ToastContainer, Form, InputGroup } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import "./join.css";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Toast, ToastContainer, Form, InputGroup } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
+import './join.css';
 
 export default function SignIn() {
   let history = useHistory();
-  const [name, setName] = useState("");
-  const [validationMessage, setValidationMessage] = useState("");
-  const [room, setRoom] = useState("");
+  const [name, setName] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
+  const [room, setRoom] = useState('');
   const [showToast, setToastShow] = useState(false);
   useEffect(() => {
     let url = window.location.href;
-    let abc = url.split("?")[1];
+    let abc = url.split('?')[1];
     if (abc !== undefined) {
-      let roomName = abc.split("=")[1];
+      let roomName = abc.split('=')[1];
       console.log(origin);
       setRoom(roomName);
     }
@@ -23,19 +23,19 @@ export default function SignIn() {
   const checkValidation = (e) => {
     e.preventDefault();
     if (!name) {
-      setValidationMessage("Please enter your name");
+      setValidationMessage('Please enter your name');
     } else if (!room) {
-      setValidationMessage("Please enter your room name");
+      setValidationMessage('Please enter your room name');
     } else {
-      console.log("Passed");
+      console.log('Passed');
       history.push(`/chat?name=${name}&room=${room}`);
     }
     setToastShow(true);
   };
 
   return (
-    <div className="OContainer">
-      <div className="IContainer">
+    <div className="outside-container">
+      <div className="inside-container">
         <ToastContainer className="p-3" position="top-center">
           <Toast
             onClose={() => setToastShow(false)}
@@ -52,27 +52,27 @@ export default function SignIn() {
         </ToastContainer>
         <h2 className="head">Enter Chat Room</h2>
         <InputGroup
-          id="sendSection"
+          id="send-section"
           className="mb-3"
           onKeyPress={(event) =>
-            event.key === "Enter" ? checkValidation(event) : null
+            event.key === 'Enter' ? checkValidation(event) : null
           }
         >
-          <div className="inputDiv">
+          <div className="input-div">
             <Form.Control
-              id="joinChatRoomName"
+              id="join-chat-room-name"
               placeholder="Name"
-              className="username"
+              className="user-name"
               type="text"
               onChange={(event) => setName(event.target.value)}
             />
           </div>
 
-          <div className="inputDiv">
+          <div className="input-div">
             <Form.Control
-              id="joinChatRoomRoom"
+              id="join-chat-room-room"
               placeholder="Room"
-              className="roomname mt-20"
+              className="room-name mt-20"
               type="text"
               value={room}
               onChange={(event) => setRoom(event.target.value)}
@@ -80,7 +80,7 @@ export default function SignIn() {
           </div>
         </InputGroup>
         <Link onClick={(e) => checkValidation(e)}>
-          <button className={"button mt-20"} type="submit">
+          <button className={'button mt-20'} type="submit">
             Go
           </button>
         </Link>

@@ -1,173 +1,196 @@
-.OContainer {
-    background-image: linear-gradient(to left top, #5e757a, #738b92, #88a2aa, #9eb9c3, #b5d1dd);
-    background-image: linear-gradient(to left top, #273134, #2d383b, #333f43, #3a464a, #404d52);
-    border-color: black;
-    border-radius: 0.5em;
-    border-style: solid;
-    border-width: 0.05em;
-    box-shadow: 0.2em 0.2em 0.2em #333333;
-    margin: auto;
-    margin-top: 5em;
-    margin-bottom: 5em;
-    padding: 2em;
-    text-align: center;
-    width: 25em;
+.outside-container {
+  background-image: linear-gradient(
+    to left top,
+    rgb(94, 117, 122),
+    rgb(115, 139, 146),
+    rgb(136, 162, 170),
+    rgb(158, 185, 195),
+    #b5d1dd
+  );
+  background-image: linear-gradient(
+    to left top,
+    rgb(39, 49, 52),
+    rgb(45, 56, 59),
+    rgb(51, 63, 67),
+    rgb(58, 70, 74),
+    rgb(64, 77, 82)
+  );
+  border-color: rgb(0, 0, 0);
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 0.05em;
+  box-shadow: 0.2em 0.2em 0.2em rgb(51, 51, 51);
+  margin: auto;
+  margin-top: 5em;
+  margin-bottom: 5em;
+  padding: 2em;
+  text-align: center;
+  width: 25em;
 }
 
 #root {
-    background-image: linear-gradient(to left top, #3c4a4d, #49595d, #57686d, #66787f, #758890);
-    background-size: cover;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+  background-image: linear-gradient(
+    to left top,
+    rgb(60, 74, 77),
+    rgb(73, 89, 93),
+    rgb(87, 104, 109),
+    rgb(102, 120, 127),
+    rgb(117, 136, 144)
+  );
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
-input[type=text]{
-    background-color: #00000040;
-    border-color: #75939f #191f21 #191f21 #75939f;
-    border-color: #80a2ae #121718 #121718 #80a2ae;
-    border-radius: 0.5em;
-    border-width: 0.07em;
-    box-sizing: border-box;
-    color: #dddddd;
-    margin: 8px 4px;
-    padding: 12px 20px;
-    transition: width 0.3s ease-in-out;
-    width: 99%;  
+input[type='text'] {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-color: rgb(117, 147, 159) rgb(25, 31, 33) rgb(25, 31, 33)
+    rgb(117, 147, 159);
+  border-color: rgb(128, 162, 174) rgb(18, 23, 24) rgb(18, 23, 24)
+    rgb(128, 162, 174);
+  border-radius: 0.5em;
+  border-width: 0.07em;
+  box-sizing: border-box;
+  color: rgb(221, 221, 221);
+  margin: 8px 4px;
+  padding: 12px 20px;
+  transition: width 0.3s ease-in-out;
+  width: 99%;
 }
 
-input[type=text]:focus {   
-    border-color: #8eb4c1 #0b0e0f #0b0e0f #0b0e0f;
-    border-style: solid;
-    border-width: 0.07em;
-    outline: none;
-    width: 100%;
+input[type='text']:focus {
+  border-color: rgb(142, 180, 193) rgb(11, 14, 15) rgb(11, 14, 15)
+    rgb(11, 14, 15);
+  border-style: solid;
+  border-width: 0.07em;
+  outline: none;
+  width: 100%;
 }
 
-input[type=text]:focus:hover {
-    border-color: #a6d2e1 #000000 #000000 #000000;
-    border-style: solid;
-    border-width: 0.07em;
-    outline: none;
-    width: 100%;
+input[type='text']:focus:hover {
+  border-color: rgb(166, 210, 225) rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0);
+  border-style: solid;
+  border-width: 0.07em;
+  outline: none;
+  width: 100%;
 }
 
-input[type=text]:hover {
-    border-color: #95bdcb #0c0f10 #0c0f10 #95bdcb;
-    border-width: 0.07em;
-    margin: 8px 4px;
-    padding: 12px 20px;
-    
+input[type='text']:hover {
+  border-color: rgb(149, 189, 203) rgb(12, 15, 16) rgb(12, 15, 16)
+    rgb(149, 189, 203);
+  border-width: 0.07em;
+  margin: 8px 4px;
+  padding: 12px 20px;
 }
 
 .head {
-    color: #dddddd;
-    margin-bottom: 0.7em;
-    text-align: center;
+  color: rgb(221, 221, 221);
+  margin-bottom: 0.7em;
+  text-align: center;
 }
 
 button {
-    background-color: #4a5c62;
-    /*background-image: linear-gradient(to left top, #4a5c62, #51646b, #586c73, #60757c, #677d85);*/
-    margin-top: 1.5em;
-    margin-bottom: 0;
-    border-color: #708b97 #242d30 #242d30 #627a84;
-    border-radius: 0.5em;
-    border-width: 0.07em;
-    color: #dddddd;
-    padding: 0.5em;
-    text-align: center;
-    transition: background-color 0.2s ease-in-out;
-    width: 40%;  
+  background-color: rgb(74, 92, 98);
+  margin-top: 1.5em;
+  margin-bottom: 0;
+  border-color: rgb(112, 139, 151) rgb(36, 45, 48) rgb(36, 45, 48)
+    rgb(98, 122, 132);
+  border-radius: 0.5em;
+  border-width: 0.07em;
+  color: rgb(221, 221, 221);
+  padding: 0.5em;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+  width: 40%;
 }
 
-button:hover{
-    background-color: #627a82;
-    /*background-image: linear-gradient(to left top, #5d757d, #627b83, #678189, #6d8790, #728d96);*/
-    
+button:hover {
+  background-color: #627a82;
 }
-button:active{
-    background-color: #1e272a;
-    /*background-image: linear-gradient(to left top, #1e272a, #1e2629, #1e2529, #1d2528, #1d2427);*/ 
+button:active {
+  background-color: #1e272a;
 }
-.inputDiv{
-    width: 100%;
+.input-div {
+  width: 100%;
 }
 
-#joinChatRoomName {
-    background-color: #00000040;
-    border-color: #75939f #191f21 #191f21 #75939f;
-    border-color: #80a2ae #121718 #121718 #80a2ae;
-    border-radius: 0.5em;
-    border-width: 0.07em;
-    box-sizing: border-box;
-    color: #dddddd;
-    margin: 8px 4px;
-    padding: 12px 20px;
-    transition: width 0.3s ease-in-out;
-    width: 99%;  
+#join-chat-room-name {
+  background-color: rgba(0, 0, 0, 0.251);
+  border-color: rgb(128, 162, 174) rgb(18, 23, 24) rgb(18, 23, 24)
+    rgb(128, 162, 174);
+  border-radius: 0.5em;
+  border-width: 0.07em;
+  box-sizing: border-box;
+  color: rgb(221, 221, 221);
+  margin: 8px 4px;
+  padding: 12px 20px;
+  transition: width 0.3s ease-in-out;
+  width: 99%;
 }
 
-#joinChatRoomName:focus {   
-    border-color: #8eb4c1 #0b0e0f #0b0e0f #0b0e0f;
-    border-style: solid;
-    border-width: 0.07em;
-    outline: none;
-    width: 100%;
+#join-chat-room-name:focus {
+  border-color: rgb(142, 180, 193) rgb(11, 14, 15) rgb(11, 14, 15)
+    rgb(11, 14, 15);
+  border-style: solid;
+  border-width: 0.07em;
+  outline: none;
+  width: 100%;
 }
 
-#joinChatRoomName:focus:hover {
-    border-color: #a6d2e1 #000000 #000000 #000000;
-    border-style: solid;
-    border-width: 0.07em;
-    outline: none;
-    width: 100%;
+#join-chat-room-name:focus:hover {
+  border-color: rgb(166, 210, 225) rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0);
+  border-style: solid;
+  border-width: 0.07em;
+  outline: none;
+  width: 100%;
 }
 
-#joinChatRoomName:hover {
-    border-color: #95bdcb #0c0f10 #0c0f10 #95bdcb;
-    border-width: 0.07em;
-    margin: 8px 4px;
-    padding: 12px 20px;
-    
+#join-chat-room-name:hover {
+  border-color: rgb(149, 189, 203) rgb(12, 15, 16) rgb(12, 15, 16)
+    rgb(149, 189, 203);
+  border-width: 0.07em;
+  margin: 8px 4px;
+  padding: 12px 20px;
 }
 
-#joinChatRoomRoom {
-    background-color: #00000040;
-    border-color: #75939f #191f21 #191f21 #75939f;
-    border-color: #80a2ae #121718 #121718 #80a2ae;
-    border-radius: 0.5em;
-    border-width: 0.07em;
-    box-sizing: border-box;
-    color: #dddddd;
-    margin: 8px 4px;
-    padding: 12px 20px;
-    transition: width 0.3s ease-in-out;
-    width: 99%;  
+#join-chat-room-room {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-color: rgb(128, 162, 174) rgb(18, 23, 24) rgb(18, 23, 24)
+    rgb(128, 162, 174);
+  border-radius: 0.5em;
+  border-width: 0.07em;
+  box-sizing: border-box;
+  color: rgb(221, 221, 221);
+  margin: 8px 4px;
+  padding: 12px 20px;
+  transition: width 0.3s ease-in-out;
+  width: 99%;
 }
 
-#joinChatRoomRoom:focus {   
-    border-color: #8eb4c1 #0b0e0f #0b0e0f #0b0e0f;
-    border-style: solid;
-    border-width: 0.07em;
-    outline: none;
-    width: 100%;
+#join-chat-room-room :focus {
+  border-color: rgb(142, 180, 193) rgb(11, 14, 15) rgb(11, 14, 15)
+    rgb(11, 14, 15);
+  border-style: solid;
+  border-width: 0.07em;
+  outline: none;
+  width: 100%;
 }
 
-#joinChatRoomRoom:focus:hover {
-    border-color: #a6d2e1 #000000 #000000 #000000;
-    border-style: solid;
-    border-width: 0.07em;
-    outline: none;
-    width: 100%;
+#join-chat-room-room :focus:hover {
+  border-color: rgb(166, 210, 225) rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0);
+  border-style: solid;
+  border-width: 0.07em;
+  outline: none;
+  width: 100%;
 }
 
-#joinChatRoomRoom:hover {
-    border-color: #95bdcb #0c0f10 #0c0f10 #95bdcb;
-    border-width: 0.07em;
-    margin: 8px 4px;
-    padding: 12px 20px;
-    
+#join-chat-room-room:hover {
+  border-color: rgb(149, 189, 203) rgb(12, 15, 16) rgb(12, 15, 16)
+    rgb(149, 189, 203);
+  border-width: 0.07em;
+  margin: 8px 4px;
+  padding: 12px 20px;
 }

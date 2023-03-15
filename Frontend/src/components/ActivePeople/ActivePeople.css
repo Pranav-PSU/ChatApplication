@@ -1,4 +1,4 @@
-.textContainer {
+.text-container {
   color: rgb(255, 255, 255);
   flex-direction: column;
   height: 60%;
@@ -6,39 +6,8 @@
   margin-left: 100px;
 }
 
-#activePeopleCard {
-  min-width: 800px;
-  position: fixed;
-  right: 0;
-  top: 20;
-}
-
-#peoplePresentTile {
+#people-present-tile {
   background-color: rgb(74, 92, 98);
-  background-image: linear-gradient(
-    to right bottom,
-    rgb(39, 50, 53),
-    rgb(45, 57, 60),
-    rgb(51, 63, 67),
-    rgb(57, 70, 74),
-    rgb(63, 77, 81)
-  );
-  background-image: linear-gradient(
-    to top,
-    #273235,
-    #2d393c,
-    #333f43,
-    #39464a,
-    #3f4d51
-  );
-  background-image: linear-gradient(
-    to top,
-    rgb(39, 50, 53),
-    rgb(42, 53, 57),
-    rgb(45, 57, 60),
-    rgb(48, 60, 64),
-    rgb(51, 64, 68)
-  );
   background-image: linear-gradient(
     to top,
     rgb(39, 50, 53),
@@ -50,6 +19,7 @@
   border-color: rgb(36, 45, 48) rgb(63, 77, 81) rgb(63, 77, 81) rgb(36, 45, 48);
   border-radius: 0.5em;
   border-width: 0.09em;
+  box-shadow: 1px 1px 2px black;
   color: rgb(221, 221, 221);
   display: block;
   margin-bottom: 1em;
@@ -64,16 +34,16 @@
   width: 100%;
 }
 
-.activeContainer img {
+.active-container img {
   padding-left: 10px;
 }
 
-.textContainer h1 {
+.text-container h1 {
   margin-bottom: 0px;
 }
 
 @media (min-width: 320px) and (max-width: 1200px) {
-  .textContainer {
+  .text-container {
     display: none;
   }
 }

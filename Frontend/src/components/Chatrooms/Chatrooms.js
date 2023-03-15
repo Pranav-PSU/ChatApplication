@@ -18,7 +18,6 @@ const Chatrooms = () => {
 
     socket.on('roomList', ({ roomList }) => {
       setRoomlist([...new Set(roomList)]);
-      //console.log(roomlist);
     });
   }, []);
 
@@ -29,13 +28,13 @@ const Chatrooms = () => {
         <ListGroup variant="flush">
           {roomlist ? (
             <div id="holder">
-              <div className="activeContainer">
+              <div className="active-container">
                 {roomlist.map((name) => (
                   <LinkContainer to={`/join?room=${name}`}>
                     <ListGroup.Item
                       key={name}
-                      className="activeItem"
-                      id="roomTiles"
+                      className="active-item"
+                      id="room-tiles"
                     >
                       {name}
                     </ListGroup.Item>
