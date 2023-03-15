@@ -1,0 +1,12 @@
+/* Temporary fix to some styles */
+
+.form-label {
+    color: white;
+}
+
+.button {
+    margin: 0;
+    padding: 1rem;
+    width: 25%;
+    border-radius: 15px;
+}
