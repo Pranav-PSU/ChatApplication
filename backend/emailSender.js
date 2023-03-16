@@ -1,9 +1,3 @@
-const genRand = (len) => {
-  return Math.random()
-    .toString(36)
-    .substring(2, len + 2);
-};
-
 exports.sendEmails = (req, res) => {
   let email = req.body.email;
   let personName = req.body.personName;
@@ -20,10 +14,10 @@ exports.sendEmails = (req, res) => {
     },
   });
   const mailOptions = {
-    from: "dharamthokpranav@gmail.com", // sender address
-    to: email, // list of receivers
-    subject: subject, // Subject line
-    html: "<h4>" + text + "</h4>", // plain text body
+    from: "dharamthokpranav@gmail.com", 
+    to: email, 
+    subject: subject,
+    html: "<h4>" + text + "</h4>",
   };
   transporter.sendMail(mailOptions, function (err, info) {
     if (err) {
