@@ -26,7 +26,7 @@ const removeUserFromRoom = (id) => {
 
 const getUserDetails = (id) => users.find((user) => user.id === id);
 
-const getAllrooms = () => {
+const getAllRooms = () => {
   return users;
 };
 
@@ -37,5 +37,5 @@ module.exports = {
   removeUserFromRoom,
   getUserDetails,
   getUsersInRoom,
-  getAllrooms,
+  getAllRooms,
 };

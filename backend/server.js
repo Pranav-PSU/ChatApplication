@@ -5,14 +5,14 @@ const socketio = require("socket.io");
 const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
-var bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
 const {
   addUserInRoom,
   removeUserFromRoom,
   getUserDetails,
   getUsersInRoom,
-  getAllrooms,
+  getAllRooms,
 } = require("./users");
 const router = require("./router");
 
@@ -29,16 +29,7 @@ app.use(
   })
 );
 
-//CORS parameters for allowing calls from origin
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
-
+// Middleware to enable CORS
 app.use(cors());
 
 //Router implementation
@@ -67,18 +58,18 @@ io.on("connect", (socket) => {
       users: getUsersInRoom(user.room),
     });
 
-    callback();
+    return callback();
   });
 
   //Event for getting active room list
   socket.on("getRoomList", (callback) => {
-    const rooms = getAllrooms();
-    let roomListArray = [];
+    const rooms = getAllRooms();
+    const roomListArray = [];
     rooms.forEach((ele, ind) => {
       roomListArray.push(ele.room);
     });
     socket.emit("roomList", { roomList: roomListArray });
-    callback();
+    return callback();
   });
 
   //Event for sending messages
@@ -87,7 +78,7 @@ io.on("connect", (socket) => {
 
     io.to(user.room).emit("message", { user: user.name, text: message });
 
-    callback();
+    return callback();
   });
 
   //Socket disconnect event
@@ -106,7 +97,7 @@ io.on("connect", (socket) => {
     }
   });
   socket.on("error", function (error) {
-    console.log(socket.id + ":" + error);
+    console.log(`${socket.id}: ${error}`);
   });
 });
 
