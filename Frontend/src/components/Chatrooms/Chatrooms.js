@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './Chatrooms.css';
 import { Card, ListGroup } from 'react-bootstrap';
-import io from 'socket.io-client';
 import { SocketContext } from '../../Context';
 import { LinkContainer } from 'react-router-bootstrap';
 let socket;

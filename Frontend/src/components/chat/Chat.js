@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import queryString from 'query-string';
 import ActivePeople from '../ActivePeople/ActivePeople';
 import {
@@ -9,20 +9,18 @@ import {
   Modal,
   Toast,
   ToastContainer,
-  Input,
 } from 'react-bootstrap';
 import './chat.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Message from '../Message/Message';
-import { SocketContext } from '../../Context';
-const APIURL = 'http://localhost:4000';
+import { SocketContext,SOCKETAPIURL,CHATAPI, APIURL } from '../../Context';
 
 let socket;
 
 const Chat = ({ location }) => {
   socket = useContext(SocketContext);
-  let reference1 = React.useRef();
+  let ScrolllReference = React.useRef();
 
   let id = useParams();
   console.log(id);
@@ -66,7 +64,7 @@ const Chat = ({ location }) => {
       } else {
         setMessages((messages) => [...messages, message]);
       }
-      scrollTo(reference1);
+      scrollTo(ScrolllReference);
     });
 
     socket.on('roomData', ({ users }) => {
@@ -98,7 +96,7 @@ const Chat = ({ location }) => {
       };
 
       axios
-        .post('http://localhost:4001/chat/invitePeople', options)
+        .post(SOCKETAPIURL+CHATAPI, options)
         .then((response) => {
           if (response.status == 200) {
             console.log(response);
@@ -138,7 +136,7 @@ const Chat = ({ location }) => {
                   <Message message={message} name={name} />
                 </div>
               ))}
-              <div ref={reference1} />
+              <div ref={ScrolllReference} />
             </div>
             <InputGroup
               id="send-section"

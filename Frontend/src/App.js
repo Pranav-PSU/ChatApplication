@@ -1,17 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
   Switch,
 } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Header from "./components/header";
 import Footer from "./components/footer";
-
 import Chat from "./components/chat/Chat";
 import Join from "./components/join/join";
-import Dashboard from "./components/dashboard";
 import Chatrooms from "./components/Chatrooms/Chatrooms";
 import { SocketContext, socket } from "./Context";
 function App() {
