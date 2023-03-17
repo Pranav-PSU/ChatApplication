@@ -38,7 +38,8 @@ app.use("/chat/", router);
 //Socket Events and Listners
 io.on("connect", (socket) => {
   socket.on("join", ({ name, room }, callback) => {
-    const { error, user } = addUserInRoom({ id: socket.id, name, room });
+    try {
+      const { error, user } = addUserInRoom({ id: socket.id, name, room });
 
     if (error) return callback(error);
 
@@ -58,32 +59,47 @@ io.on("connect", (socket) => {
       users: getUsersInRoom(user.room),
     });
 
+    } catch (error) {
+      console.error("Error occurred in join", error);
+      return callback(error);
+    }
     return callback();
   });
 
   //Event for getting active room list
   socket.on("getRoomList", (callback) => {
-    const rooms = getAllRooms();
+    try {
+      const rooms = getAllRooms();
     const roomListArray = [];
     rooms.forEach((ele, ind) => {
       roomListArray.push(ele.room);
     });
     socket.emit("roomList", { roomList: roomListArray });
     return callback();
+    } catch (error) {
+      console.error("Error occurred in getRoomList", error);
+      return callback(error);
+    }
   });
 
   //Event for sending messages
   socket.on("sendMessage", (message, callback) => {
-    const user = getUserDetails(socket.id);
+    try {
+      const user = getUserDetails(socket.id);
 
     io.to(user.room).emit("message", { user: user.name, text: message });
 
     return callback();
+    } catch (error) {
+      console.error("Error occurred in sendMessage", error);
+      return callback(error);
+    }
   });
 
   //Socket disconnect event
   socket.on("disconnect", () => {
-    const user = removeUserFromRoom(socket.id);
+    try {
+      const user = removeUserFromRoom(socket.id);
 
     if (user) {
       io.to(user.room).emit("message", {
@@ -94,6 +110,9 @@ io.on("connect", (socket) => {
         room: user.room,
         users: getUsersInRoom(user.room),
       });
+    }
+    } catch (error) {
+      console.error("Error occurred in disconnect", error);
     }
   });
   socket.on("error", function (error) {
