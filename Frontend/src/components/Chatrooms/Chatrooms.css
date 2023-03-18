@@ -10,6 +10,7 @@ body {
   );
 }
 
+/* Available Chat Rooms card */
 .card {
   background-image: linear-gradient(
     to left top,
@@ -34,10 +35,12 @@ body {
   width: fit-content;
 }
 
+/* Container that holds the div containing room tiles */
 .list-group {
   width: 100%;
 }
 
+/* Title of all cards */
 .card-header {
   background-color: rgba(0, 0, 0, 0);
   color: rgb(221, 221, 221);
@@ -51,6 +54,7 @@ body {
   width: 100%;
 }
 
+/* Room tile */
 .activeItem {
   background-color: rgb(74, 92, 98);
   border-color: rgb(112, 139, 151) rgb(36, 45, 48) rgb(36, 45, 48)
@@ -78,25 +82,12 @@ body {
   background-color: rgb(30, 39, 42);
 }
 
-#chat-room-card-title {
-  color: rgb(221, 221, 221);
-  display: block;
-  margin: 0;
-  margin-bottom: 4em;
-  padding: 0;
-  text-align: center;
-}
-
-#spacer {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
+/* Direct parent div of room tiles */
 .active-container {
   margin-bottom: 1em;
 }
 
+/* Direct parent of active container */
 #holder {
   max-height: fit-content;
 }
