@@ -13,11 +13,9 @@
   letter-spacing: 0;
   float: left;
   font-size: 1.1em;
-  word-wrap: break-word;
-}
-
-.message-text img {
+  margin-bottom: 0;
   vertical-align: middle;
+  word-wrap: break-word;
 }
 
 .message-container {
@@ -35,42 +33,21 @@
   letter-spacing: 0.3px;
   margin-top: auto;
   margin-bottom: auto;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
-.pl-10 {
-  padding-left: 10px;
-}
-
-.pr-10 {
-  padding-right: 10px;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
+/* For others' messages to be shown to the left */
 .justify-start {
   justify-content: flex-start;
-}
-
-.justify-end {
-  justify-content: flex-end;
-}
-
-.color-white {
-  color: rgb(255, 255, 255);
 }
 
 .color-dark {
   color: rgb(53, 53, 53);
 }
 
-.background-blue {
-  background: rgb(41, 121, 255);
-}
-
-.background-light {
-  background: rgb(243, 243, 243);
-}
-
+/* All messages-list::-webkit-scrollbar elements are
+   regarding the scroll bar of the message container */
 .messages-list::-webkit-scrollbar {
   width: 1em;
 }
@@ -114,8 +91,4 @@
     rgb(156, 170, 176),
     rgb(173, 184, 189)
   );
-}
-
-.message-text {
-  margin-bottom: 0;
 }

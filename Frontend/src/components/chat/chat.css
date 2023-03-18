@@ -1,6 +1,7 @@
 #invite-button {
   background-color: rgb(74, 92, 98);
-  border-color: rgb(112, 139, 151) rgb(36, 45, 48) rgb(36, 45, 48) rgb(98, 122, 132);
+  border-color: rgb(112, 139, 151) rgb(36, 45, 48) rgb(36, 45, 48)
+    rgb(98, 122, 132);
   border-radius: 0.5em;
   border-width: 0.07em;
   color: rgb(221, 221, 221);
@@ -20,19 +21,24 @@
   background-color: rgb(30, 39, 42);
 }
 
+/* Card for the chat area */
 #chat-card {
   display: inline-block;
   width: 70%;
 }
 
+/* The div that holds both the div containing the chat card
+   and the div containing the participants card */
 .outer-container {
   width: 100%;
 }
 
+/* Parent of outer container, direct child of main */
 .container {
   margin: 200;
 }
 
+/* The div that holds the particpants card */
 #active-people-container {
   position: fixed;
   right: -4em;
@@ -40,14 +46,17 @@
   width: 50%;
 }
 
+/* The div that holds the chat card */
 #chat-container {
   width: 90%;
 }
 
 #chat-text-box {
   background-color: rgba(0, 0, 0, 0.25);
-  border-color: rgb(117, 147, 159) rgb(25, 31, 33) rgb(25, 31, 33) rgb(117, 147, 159);
-  border-color: rgb(128, 162, 174) rgb(18, 23, 24) rgb(18, 23, 24) rgb(128, 162, 174);
+  border-color: rgb(117, 147, 159) rgb(25, 31, 33) rgb(25, 31, 33)
+    rgb(117, 147, 159);
+  border-color: rgb(128, 162, 174) rgb(18, 23, 24) rgb(18, 23, 24)
+    rgb(128, 162, 174);
   border-radius: 0.5em;
   border-width: 0.07em;
   box-sizing: border-box;
@@ -59,7 +68,8 @@
 }
 
 #chat-text-box :focus {
-  border-color: rgb(142, 180, 193) rgb(11, 14, 15) rgb(11, 14, 15) rgb(11, 14, 15);
+  border-color: rgb(142, 180, 193) rgb(11, 14, 15) rgb(11, 14, 15)
+    rgb(11, 14, 15);
   border-style: solid;
   border-width: 0.07em;
   outline: none;
@@ -75,7 +85,8 @@
 }
 
 #chat-text-box:hover {
-  border-color: rgb(149, 189, 203) rgb(12, 15, 16) rgb(12, 15, 16) rgb(149, 189, 203);
+  border-color: rgb(149, 189, 203) rgb(12, 15, 16) rgb(12, 15, 16)
+    rgb(149, 189, 203);
   border-width: 0.07em;
   margin: 8px 4px;
   padding: 12px 20px;
@@ -83,7 +94,8 @@
 
 #send-button {
   background-color: rgb(74, 92, 98);
-  border-color: rgb(112, 139, 151) rgb(36, 45, 48) rgb(36, 45, 48) rgb(98, 122, 132);
+  border-color: rgb(112, 139, 151) rgb(36, 45, 48) rgb(36, 45, 48)
+    rgb(98, 122, 132);
   border-radius: 0.5em;
   border-width: 0.07em;
   color: rgb(221, 221, 221);
@@ -124,6 +136,7 @@
 #send-section {
   margin-top: 0.5em;
 }
+
 .messages-list {
   padding: 5% 0;
   overflow-y: scroll;

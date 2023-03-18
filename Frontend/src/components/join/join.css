@@ -1,3 +1,4 @@
+/* Join dialog */
 .outside-container {
   background-image: linear-gradient(
     to left top,
@@ -28,6 +29,7 @@
   width: 25em;
 }
 
+/* Root div, direct child of body tag */
 #root {
   background-image: linear-gradient(
     to left top,
@@ -86,6 +88,7 @@ input[type='text']:hover {
   padding: 12px 20px;
 }
 
+/* Title of Join dialog (H2 element) */
 .head {
   color: rgb(221, 221, 221);
   margin-bottom: 0.7em;
@@ -117,6 +120,7 @@ button:active {
   width: 100%;
 }
 
+/* Name textbox */
 #join-chat-room-name {
   background-color: rgba(0, 0, 0, 0.251);
   border-color: rgb(128, 162, 174) rgb(18, 23, 24) rgb(18, 23, 24)
@@ -156,6 +160,7 @@ button:active {
   padding: 12px 20px;
 }
 
+/* Room textbox */
 #join-chat-room-room {
   background-color: rgba(0, 0, 0, 0.25);
   border-color: rgb(128, 162, 174) rgb(18, 23, 24) rgb(18, 23, 24)

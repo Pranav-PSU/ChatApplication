@@ -12,7 +12,7 @@ const Message = ({ message: { text, user }, name }) => {
   }
 
   return isSentByCurrentUser ? (
-    <div className="message-container justify-end">
+    <div className="message-container">
       <p className="sent-text pr-10">{trimmedName}</p>
       <div className="message-box background-blue" id="own-message">
         <p className="message-text color-white">{text}</p>
@@ -23,7 +23,7 @@ const Message = ({ message: { text, user }, name }) => {
       <div className="message-box background-light" id="others-message">
         <p className="message-text color-dark">{text}</p>
       </div>
-      <p className="sent-text pl-10 ">{user}</p>
+      <p className="sent-text ">{user}</p>
     </div>
   );
 };
