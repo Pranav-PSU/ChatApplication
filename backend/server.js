@@ -1,23 +1,16 @@
-const http = require("http");
-const express = require("express");
-const app = express();
-const socketio = require("socket.io");
-const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 const bodyParser = require("body-parser");
-
-const {
-  addUserInRoom,
-  removeUserFromRoom,
-  getUserDetails,
-  getUsersInRoom,
-  getAllRooms,
-} = require("./users");
+const cors = require("cors");
+const express = require("express");
+const http = require("http");
+const { socketInitialization } = require("./socketEvents");
+const app = express();
+const socketServer = http.createServer(app);
 const router = require("./router");
 
-const server = http.createServer(app);
-const io = socketio(server);
+// Initialize socket.io
+socketInitialization(socketServer);
 
 //Bodyparser initialization
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -35,98 +28,17 @@ app.use(cors());
 //Router implementation
 app.use("/chat/", router);
 
-//Socket Events and Listners
-io.on("connect", (socket) => {
-  socket.on("join", ({ name, room }, callback) => {
-    try {
-      const { error, user } = addUserInRoom({ id: socket.id, name, room });
-
-    if (error) return callback(error);
-
-    socket.join(user.room);
-
-    socket.emit("message", {
-      user: "welcomeText",
-      text: `Hello ${user.name}, Welcome to the ${user.room}.  Happy Chatting! `,
-    });
-    socket.broadcast.to(user.room).emit("message", {
-      user: "welcomeText",
-      text: `${user.name} has joined!`,
-    });
-
-    io.to(user.room).emit("roomData", {
-      room: user.room,
-      users: getUsersInRoom(user.room),
-    });
-
-    } catch (error) {
-      console.error("Error occurred in join", error);
-      return callback(error);
-    }
-    return callback();
-  });
-
-  //Event for getting active room list
-  socket.on("getRoomList", (callback) => {
-    try {
-      const rooms = getAllRooms();
-    const roomListArray = [];
-    rooms.forEach((ele, ind) => {
-      roomListArray.push(ele.room);
-    });
-    socket.emit("roomList", { roomList: roomListArray });
-    return callback();
-    } catch (error) {
-      console.error("Error occurred in getRoomList", error);
-      return callback(error);
-    }
-  });
-
-  //Event for sending messages
-  socket.on("sendMessage", (message, callback) => {
-    try {
-      const user = getUserDetails(socket.id);
-
-    io.to(user.room).emit("message", { user: user.name, text: message });
-
-    return callback();
-    } catch (error) {
-      console.error("Error occurred in sendMessage", error);
-      return callback(error);
-    }
-  });
-
-  //Socket disconnect event
-  socket.on("disconnect", () => {
-    try {
-      const user = removeUserFromRoom(socket.id);
-
-    if (user) {
-      io.to(user.room).emit("message", {
-        user: "welcomeText",
-        text: `${user.name} has left.`,
-      });
-      io.to(user.room).emit("roomData", {
-        room: user.room,
-        users: getUsersInRoom(user.room),
-      });
-    }
-    } catch (error) {
-      console.error("Error occurred in disconnect", error);
-    }
-  });
-  socket.on("error", function (error) {
-    console.log(`${socket.id}: ${error}`);
-  });
-});
-
 //Test API
 app.get("/", (req, res) => {
-  res.send({ response: "Server is running" });
+  res.send({ response: "socketServer is running" });
 });
 
-//Server for Socket Events
-server.listen(4000, () => console.log(`Socket server has started.`));
+// Start the socketServer
+const SOCKETPORT = 4000;
+socketServer.listen(SOCKETPORT, () => {
+  console.log(`Socket Server running on port ${SOCKETPORT}`);
+});
 
-//Server for other APIs
-app.listen(4001, () => console.log(`Server has started.`));
+// Start the node server for email service
+const NODEPORT = 4001;
+app.listen(NODEPORT, () => console.log(`Node Server has started. ${NODEPORT}`));
