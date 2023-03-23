@@ -1,13 +1,16 @@
 const users = [];
 
 const addUserInRoom = ({ id, name, room }) => {
-  if (typeof id !== 'string' || typeof name !== 'string' || typeof room !== 'string') {
-    return { error: 'Input type is invalid.' };
+    if (
+    typeof id !== "string" ||
+    typeof name !== "string" ||
+    typeof room !== "string"
+  ) {
+    return { error: "Input type is invalid." };
   }
   name = name.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
- 
   const existingUser = users.find(
     (user) => user.room === room && user.name === name
   );
