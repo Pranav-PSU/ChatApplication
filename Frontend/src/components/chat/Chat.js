@@ -28,7 +28,6 @@ const Chat = ({ location }) => {
   const [room, setRoom] = useState('');
   const [users, setUsers] = useState('');
   const [showToast, setToastShow] = useState(false);
-  const [welcomeMessage, setWelcomeMessage] = useState('');
   const [toastMessage, setToastMessage] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
